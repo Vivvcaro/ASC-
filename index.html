@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Viviana Caro — Acoustic States of Consciousness</title>
+  <meta name="description" content="Sonic Protocols · Altered States · Neuroaesthetics of consciousness through sound." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --violet:#8B5CF6; --cyan:#06B6D4; --emerald:#10B981;
+      --neutral:#a3a3a3; --border:rgba(255,255,255,0.07);
+      --glass:rgba(10,10,10,0.72);
+      --ease:cubic-bezier(0.23,1,0.32,1);
+      --serif:'Instrument Serif',serif; --sans:'Inter',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{background:#030303;color:#fff;font-family:var(--sans);font-weight:400;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    ::selection{background:var(--violet);color:#fff}
+    a{text-decoration:none;color:inherit;cursor:pointer}
+    button{cursor:pointer;font-family:var(--sans);border:none;background:none;color:inherit}
+    ul{list-style:none}
+    input,textarea,select{font-family:var(--sans);font-size:.95rem;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;color:#fff;padding:.85rem 1.1rem;width:100%;outline:none;transition:border-color 300ms var(--ease);appearance:none;-webkit-appearance:none}
+    input::placeholder,textarea::placeholder{color:#525252}
+    input:focus,textarea:focus,select:focus{border-color:rgba(139,92,246,.5)}
+
+    /* ── PAGE ROUTING ── */
+    .page{display:none}
+    .page.active{display:block;animation:pageFadeIn .55s var(--ease) both}
+    @keyframes pageFadeIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+    /* ── SCROLL REVEAL ── */
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity 800ms var(--ease),transform 800ms var(--ease)}
+    .reveal.in{opacity:1;transform:translateY(0)}
+    .d1{transition-delay:.08s}.d2{transition-delay:.18s}.d3{transition-delay:.3s}.d4{transition-delay:.44s}.d5{transition-delay:.58s}
+
+    /* ── NAV ── */
+    #mainNav{
+      position:fixed;top:1.5rem;left:50%;transform:translateX(-50%);
+      width:95%;max-width:860px;
+      background:rgba(10,10,10,0.75);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:9999px;
+      backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+      padding:6px 6px 6px 20px;
+      display:flex;align-items:center;justify-content:space-between;
+      z-index:200;gap:.5rem;
+      /* single contained element — no overflow bleed */
+      isolation:isolate;
+    }
+    .nav-left{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+    .nav-logo{font-family:var(--serif);font-style:normal;font-size:1.08rem;letter-spacing:-.01em;white-space:nowrap;color:#fff;transition:opacity 300ms var(--ease)}
+    .nav-logo:hover{opacity:.65}
+    .nav-home-icon{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:1px solid rgba(139,92,246,.45);border-radius:50%;color:#a78bfa;flex-shrink:0;transition:color 250ms,border-color 250ms,background 250ms;background:rgba(139,92,246,.12)}
+    .nav-home-icon:hover{color:#c4b5fd;border-color:rgba(139,92,246,.75);background:rgba(139,92,246,.22)}
+    .nav-home-icon svg{width:12px;height:12px;display:block}
+    .nav-links{display:flex;align-items:center;gap:2px;margin-left:auto;justify-content:flex-end;padding-right:.5rem}
+    .nav-links a{font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.1em;color:#a3a3a3;padding:6px 10px;border-radius:9999px;white-space:nowrap;transition:color 200ms,background 200ms}
+    .nav-links a:hover,.nav-links a.active-link{color:#fff;background:rgba(255,255,255,.07)}
+    /* Solid white CTA — Synapse spec: White bg, black text, rounded-full */
+    .nav-cta{background:#ffffff;color:#030303;font-size:11px;font-weight:600;letter-spacing:.04em;border-radius:9999px;padding:8px 18px;white-space:nowrap;flex-shrink:0;display:inline-block;transition:opacity 200ms,transform 200ms}
+    .nav-cta:hover{opacity:.88;transform:scale(.97)}
+    @media(max-width:860px){.nav-links{display:none}}
+    @media(max-width:480px){.nav-logo{font-size:.82rem}}
+
+    /* ── SHARED ── */
+    .section-tag{display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:.25em;color:var(--violet);border:1px solid rgba(139,92,246,.25);border-radius:9999px;padding:.28rem .9rem;background:rgba(139,92,246,.06)}
+    .section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:400;line-height:1.1;letter-spacing:-.03em;margin-top:.9rem}
+    .section-title em{font-style:normal}
+    .section-sub{font-size:1rem;font-weight:300;color:var(--neutral);line-height:1.75;margin-top:.9rem}
+    .page-wrap{max-width:1200px;margin:0 auto;padding:clamp(7rem,12vw,10rem) clamp(1.5rem,5vw,4rem) clamp(4rem,8vw,7rem)}
+    .page-wrap-narrow{max-width:720px;margin:0 auto;padding:clamp(7rem,12vw,10rem) clamp(1.5rem,5vw,3rem) clamp(4rem,8vw,7rem)}
+
+    /* ── SHINY BUTTON ── */
+    .shiny-wrap{position:relative;display:inline-block;border-radius:9999px;padding:1px;overflow:hidden}
+    .shiny-wrap::before{content:'';position:absolute;inset:0;background:conic-gradient(from 0deg,transparent 0%,#8B5CF6 40%,#06B6D4 50%,transparent 60%);width:200%;height:200%;top:-50%;left:-50%;animation:spin-border 4s linear infinite}
+    @keyframes spin-border{to{transform:rotate(360deg)}}
+    .shiny-inner{position:relative;z-index:1;background:#0a0a0a;color:#fff;font-size:12px;font-weight:600;letter-spacing:.05em;padding:.85rem 2rem;border-radius:9999px;display:block;transition:background 250ms;white-space:nowrap}
+    .shiny-wrap:hover .shiny-inner{background:#141414}
+    .btn-ghost{font-size:12px;font-weight:400;color:var(--neutral);border:1px solid rgba(255,255,255,.1);border-radius:9999px;padding:.85rem 1.8rem;display:inline-block;transition:color 250ms,border-color 250ms;white-space:nowrap}
+    .btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,.3)}
+
+    /* ── SHIMMER ── */
+    .shimmer{background:linear-gradient(90deg,#a78bfa 0%,#fff 38%,#fff 55%,#22d3ee 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer-move 4s linear infinite}
+    @keyframes shimmer-move{from{background-position:200% center}to{background-position:-200% center}}
+
+    /* ── ORBS ── */
+    .orbs{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+    .orb{position:absolute;border-radius:50%;filter:blur(80px)}
+    .orb-a{width:400px;height:400px;background:rgba(139,92,246,.18);top:2%;right:-8%;animation:fl1 12s ease-in-out infinite}
+    .orb-b{width:320px;height:320px;background:rgba(6,182,212,.13);bottom:8%;left:-6%;animation:fl2 9s ease-in-out infinite}
+    .orb-c{width:220px;height:220px;background:rgba(139,92,246,.1);bottom:22%;right:14%;animation:fl3 15s ease-in-out infinite}
+    @keyframes fl1{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-22px) scale(1.05)}}
+    @keyframes fl2{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-16px) scale(1.04)}}
+    @keyframes fl3{0%,100%{transform:translateY(0) scale(1)}33%{transform:translateY(-18px) scale(1.06)}66%{transform:translateY(10px) scale(.97)}}
+
+    /* ══════════ HOME ══════════ */
+    #hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 1.5rem 6rem;overflow:hidden}
+    #hero::before{content:'';position:absolute;top:-10%;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(139,92,246,.26) 0%,transparent 65%);filter:blur(30px);pointer-events:none}
+    .hero-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;max-width:680px;width:100%}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--neutral);border:1px solid var(--border);border-radius:9999px;padding:.38rem 1rem;background:rgba(255,255,255,.03);margin-bottom:2.5rem;position:relative;z-index:1}
+    .eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--emerald);animation:blink 2.5s ease-in-out infinite}
+    @keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(16,185,129,.6)}50%{opacity:.7;box-shadow:0 0 0 5px rgba(16,185,129,0)}}
+    .hero-title{font-family:var(--serif);font-size:clamp(3.2rem,8vw,7rem);line-height:.94;letter-spacing:-.03em;font-weight:400;position:relative;z-index:1;margin-bottom:0}
+    .hero-title em{font-style:normal}
+    .hero-tagline{max-width:580px;margin:0 auto 1.1rem;font-size:1.15rem;font-weight:300;line-height:1.7;color:rgba(255,255,255,.75);position:relative;z-index:1}
+    .hero-sub{max-width:520px;margin:0 auto 2.8rem;font-size:.95rem;font-weight:300;line-height:1.75;color:var(--neutral);position:relative;z-index:1}
+    .hero-actions{display:flex;align-items:center;gap:1.2rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;margin-top:2.5rem}
+    .hero-whatif{max-width:620px;margin:2.5rem auto 0;text-align:center;position:relative;z-index:1}
+    .hero-whatif-q{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:400;color:rgba(255,255,255,.88);line-height:1.42;letter-spacing:-.02em}
+    .hero-whatif-body{font-size:clamp(.9rem,1.4vw,1rem);font-weight:300;color:rgba(255,255,255,.5);line-height:1.82;margin-top:1rem}
+    /* Wandering mini astronauts — site-wide, fixed */
+    .wander-astro{position:fixed;z-index:145;pointer-events:none;opacity:.82;filter:drop-shadow(0 0 7px rgba(139,92,246,.5));will-change:transform,left,top}
+
+    /* Prompting Consciousness */
+    #prompting{padding:clamp(5rem,10vw,8rem) clamp(1.5rem,5vw,4rem);max-width:1100px;margin:0 auto}
+    .prompting-layout{display:grid;grid-template-columns:1fr 1.05fr;gap:4rem;align-items:start}
+    @media(max-width:860px){.prompting-layout{grid-template-columns:1fr;gap:3rem}}
+    .prompting-body{font-size:.98rem;font-weight:300;line-height:1.82;color:var(--neutral);margin-top:1.2rem}
+    .exp-list{margin-top:1.8rem;display:flex;flex-direction:column;gap:.65rem}
+    .exp-item{display:flex;align-items:baseline;gap:.7rem;font-size:.92rem;font-weight:300;color:#d4d4d4}
+    .exp-item::before{content:'—';color:var(--violet);font-size:.75rem;flex-shrink:0}
+    .prompting-cta{margin-top:2.2rem}
+    .ide-window{background:rgba(8,8,8,.85);border:1px solid rgba(255,255,255,.09);border-radius:1.4rem;overflow:hidden;backdrop-filter:blur(16px)}
+    .ide-toolbar{display:flex;align-items:center;gap:.6rem;padding:.9rem 1.3rem;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02)}
+    .win-dot{width:11px;height:11px;border-radius:50%}
+    .wd-r{background:rgba(255,95,87,.4)}.wd-y{background:rgba(255,189,46,.4)}.wd-g{background:rgba(40,201,64,.4)}
+    .ide-filename{flex:1;text-align:center;font-size:11px;font-family:'Courier New',monospace;color:#525252;letter-spacing:.04em}
+    .ide-copy{font-size:11px;color:#525252;padding:.2rem .5rem;border-radius:4px;transition:color 200ms,background 200ms}
+    .ide-copy:hover{color:#fff;background:rgba(255,255,255,.05)}
+    .ide-code{padding:1.5rem 1.7rem;font-family:'Courier New',monospace;font-size:.8rem;line-height:2;overflow-x:auto}
+    .cv{color:#c084fc}.cc{color:#22d3ee}.ce{color:#34d399}.cg{color:#525252}.cw{color:#f1f5f9}.co{color:#fb923c}
+    .ide-after{margin-top:1.1rem;font-size:.87rem;font-weight:300;color:#525252;font-style:normal;line-height:1.6;text-align:center;padding:0 .5rem}
+
+    /* ══════════ RESEARCH ══════════ */
+    .research-header{text-align:center;margin-bottom:4rem}
+    .research-header .section-title{font-size:clamp(2rem,4.5vw,3.5rem);max-width:700px;margin:.8rem auto 0}
+    .research-intro{max-width:680px;margin:1.5rem auto 0;font-size:1.05rem;font-weight:300;line-height:1.82;color:var(--neutral)}
+    .research-quote{max-width:760px;margin:4rem auto 0;padding:2.5rem;border:1px solid rgba(139,92,246,.18);border-radius:1.5rem;background:rgba(139,92,246,.04);font-family:var(--serif);font-style:normal;font-size:clamp(1.1rem,2.5vw,1.5rem);line-height:1.5;color:rgba(255,255,255,.8);text-align:center;letter-spacing:-.01em}
+    .research-img-wrap{margin:2.5rem 0;border-radius:1.5rem;overflow:hidden;max-height:420px}
+    .research-hero-img{width:100%;height:420px;object-fit:cover;display:block}
+    .research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
+    @media(max-width:860px){.research-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:520px){.research-grid{grid-template-columns:1fr}}
+    .r-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:1.5rem;padding:2.2rem;transition:transform 550ms var(--ease),border-color 350ms,box-shadow 350ms,background 350ms;cursor:default;opacity:0;transform:translateY(30px)}
+    .r-card.in{opacity:1;transform:translateY(0)}
+    .r-card:hover{transform:translateY(-10px);border-color:rgba(139,92,246,.28);background:rgba(255,255,255,.04);box-shadow:0 0 20px -10px rgba(139,92,246,.4)}
+    .r-card-num{font-size:9px;text-transform:uppercase;letter-spacing:.3em;color:#404040;margin-bottom:1.4rem;font-family:'Courier New',monospace}
+    .r-card-title{font-family:var(--serif);font-size:1.3rem;font-weight:400;letter-spacing:-.02em;line-height:1.15;margin-bottom:.8rem}
+    .r-card-title em{font-style:normal}
+    .r-card-body{font-size:.9rem;font-weight:300;line-height:1.8;color:#737373}
+
+    /* ══════════ ABOUT ══════════ */
+    .about-layout{display:grid;grid-template-columns:1fr 1.25fr;gap:5rem;align-items:start}
+    @media(max-width:760px){.about-layout{grid-template-columns:1fr;gap:3rem}}
+    .about-img-placeholder{aspect-ratio:3/4;border-radius:1.5rem;background:linear-gradient(135deg,rgba(139,92,246,.12) 0%,rgba(6,182,212,.08) 100%);border:1px solid rgba(139,92,246,.15);display:flex;align-items:center;justify-content:center;color:#404040;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase}
+    .about-img-wrap{border-radius:1.5rem;overflow:hidden;aspect-ratio:3/4}
+    .about-photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+    .about-right .section-title{margin-top:0}
+    .about-text{font-size:1rem;font-weight:300;line-height:1.85;color:var(--neutral);margin-top:1.2rem}
+    .about-text+.about-text{margin-top:1rem}
+    .about-values{margin-top:2.2rem;display:flex;flex-direction:column;gap:.7rem}
+    .about-val{display:flex;align-items:baseline;gap:.7rem;font-size:.92rem;font-weight:300;color:#d4d4d4}
+    .about-val::before{content:'✦';color:var(--violet);font-size:.65rem;flex-shrink:0}
+
+    /* ══════════ PRIVATE SESSIONS ══════════ */
+    .sessions-hero{text-align:center;margin-bottom:4.5rem}
+    .sessions-hero .section-title{font-size:clamp(2.2rem,5vw,4rem);max-width:580px;margin:.8rem auto 0}
+    .sessions-hero .section-sub{max-width:480px;margin:1rem auto 0}
+    .sessions-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:3rem}
+    @media(max-width:600px){.sessions-grid{grid-template-columns:1fr}}
+    .sess-card{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:1.4rem;padding:2rem}
+    .sess-card-label{font-size:9px;text-transform:uppercase;letter-spacing:.3em;color:var(--violet);margin-bottom:.7rem}
+    .sess-card-title{font-family:var(--serif);font-size:1.2rem;font-weight:400;letter-spacing:-.02em;margin-bottom:.6rem}
+    .sess-card-body{font-size:.9rem;font-weight:300;line-height:1.8;color:#737373}
+    .sessions-book{display:flex;flex-direction:column;align-items:center;text-align:center;border:1px solid rgba(139,92,246,.2);border-radius:1.5rem;padding:3rem 2rem;background:rgba(139,92,246,.04)}
+    .sessions-book h3{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:400;letter-spacing:-.02em;margin-bottom:.8rem}
+    .sessions-book p{font-size:.95rem;font-weight:300;color:var(--neutral);margin-bottom:2rem;line-height:1.7;max-width:400px}
+
+    /* ══════════ PUBLIC EVENTS ══════════ */
+    .events-header{text-align:center;margin-bottom:4rem}
+    .events-header .section-title{font-size:clamp(2.2rem,5vw,4rem);max-width:600px;margin:.8rem auto 0}
+    .events-header .section-sub{max-width:480px;margin:1rem auto 0}
+    .event-formats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:3.5rem}
+    @media(max-width:720px){.event-formats{grid-template-columns:1fr}}
+    .fmt-card{border:1px solid var(--border);border-radius:1.4rem;padding:2rem;background:rgba(255,255,255,.02)}
+    .fmt-icon{font-size:1.6rem;margin-bottom:1rem}
+    .fmt-title{font-family:var(--serif);font-size:1.15rem;font-weight:400;letter-spacing:-.02em;margin-bottom:.6rem}
+    .fmt-body{font-size:.9rem;font-weight:300;line-height:1.8;color:#737373}
+    .upcoming-block{border:1px solid rgba(255,255,255,.05);border-radius:1.5rem;padding:3rem 2rem;text-align:center;background:rgba(255,255,255,.015)}
+    .upcoming-block h3{font-family:var(--serif);font-size:1.6rem;font-weight:400;margin-bottom:.8rem}
+    .upcoming-block p{font-size:.95rem;font-weight:300;color:var(--neutral);margin-bottom:1.8rem;line-height:1.7}
+    .subscribe-row{display:flex;gap:.7rem;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+    .subscribe-row input{flex:1;min-width:200px;border-radius:9999px;padding:.75rem 1.2rem}
+
+    /* ══════════ CONTACT ══════════ */
+    .contact-header{text-align:center;margin-bottom:3.5rem}
+    .contact-header .section-title{font-size:clamp(2rem,4.5vw,3.5rem);max-width:520px;margin:.8rem auto 0}
+    .contact-header .section-sub{max-width:460px;margin:1rem auto 0}
+    .contact-form-wrap{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:1.8rem;padding:clamp(2rem,4vw,3rem)}
+    .form-row{margin-bottom:1.2rem}
+    .form-row label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:#525252;margin-bottom:.5rem}
+    .form-row select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23525252' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
+    .form-row select option{background:#0a0a0a;color:#fff}
+    .form-row textarea{resize:vertical;min-height:120px}
+    .form-submit{width:100%;margin-top:.5rem;display:flex;justify-content:center}
+    .form-status{display:none;text-align:center;font-size:.9rem;font-weight:300;color:var(--emerald);margin-top:1.2rem;padding:1rem;border:1px solid rgba(16,185,129,.2);border-radius:12px;background:rgba(16,185,129,.05)}
+    .form-status.visible{display:block}
+
+    /* ══════════ FOOTER ══════════ */
+    footer{position:fixed;bottom:0;left:0;right:0;z-index:150;background:rgba(3,3,3,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,.06);padding:.75rem clamp(1.2rem,4vw,3.5rem)}
+    body{padding-bottom:58px}
+    .footer-line{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:nowrap;height:36px}
+    .footer-brand-name{font-family:var(--serif);font-style:normal;font-size:.88rem;font-weight:400;letter-spacing:-.01em;white-space:nowrap;flex-shrink:0;color:#737373}
+    /* footer-nav-row removed per design */
+    .footer-right{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+    .social-links{display:flex;gap:.4rem;align-items:center}
+    /* emerald social icons */
+    .social-link{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(16,185,129,.28);border-radius:8px;color:#10B981;background:rgba(16,185,129,.06);transition:color 250ms var(--ease),border-color 250ms var(--ease),background 250ms var(--ease),box-shadow 250ms var(--ease)}
+    .social-link:hover{color:#34d399;border-color:rgba(16,185,129,.6);background:rgba(16,185,129,.15);box-shadow:0 0 14px -4px rgba(16,185,129,.4)}
+    .social-link svg{width:14px;height:14px}
+    .footer-copy{font-size:9.5px;color:#404040;letter-spacing:.03em;white-space:nowrap}
+
+    /* ══════════ SCROLL-TO-TOP + BACK ══════════ */
+    .fab-group{position:fixed;bottom:4.8rem;right:1.5rem;display:flex;flex-direction:column;gap:.5rem;z-index:190}
+    .fab{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:2px solid rgba(139,92,246,.55);background:rgba(10,10,10,.85);backdrop-filter:blur(14px);color:#a78bfa;cursor:pointer;transition:color 250ms,border-color 250ms,background 250ms,transform 200ms,box-shadow 250ms;opacity:0;pointer-events:none;transform:translateY(6px);box-shadow:0 0 18px -6px rgba(139,92,246,.4)}
+    .fab.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
+    .fab:hover{color:#c4b5fd;border-color:rgba(139,92,246,.85);background:rgba(139,92,246,.2);box-shadow:0 0 28px -4px rgba(139,92,246,.6);transform:scale(1.08)}
+    .fab svg{width:18px;height:18px;stroke:currentColor}
+
+
+    /* ══════════ CONSULTANCY ══════════ */
+    .consult-hero{text-align:center;margin-bottom:4rem}
+    .consult-hero .section-title{font-size:clamp(2.2rem,5vw,4rem);max-width:640px;margin:.8rem auto 0}
+    .consult-hero .section-sub{max-width:540px;margin:1rem auto 0}
+    .consult-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-bottom:3rem}
+    @media(max-width:640px){.consult-grid{grid-template-columns:1fr}}
+    .consult-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:1.5rem;padding:2.2rem;transition:transform 500ms var(--ease),border-color 350ms,box-shadow 350ms,background 350ms;opacity:0;transform:translateY(30px)}
+    .consult-card.in{opacity:1;transform:translateY(0)}
+    .consult-card:hover{transform:translateY(-8px);border-color:rgba(139,92,246,.28);background:rgba(255,255,255,.04);box-shadow:0 0 20px -10px rgba(139,92,246,.4)}
+    .consult-card-icon{font-size:1.5rem;margin-bottom:1.1rem}
+    .consult-card-title{font-family:var(--serif);font-size:1.25rem;font-weight:400;letter-spacing:-.02em;margin-bottom:.6rem;line-height:1.2}
+    .consult-card-body{font-size:.9rem;font-weight:300;line-height:1.8;color:#737373}
+    .consult-cta{border:1px solid rgba(139,92,246,.2);border-radius:1.5rem;padding:3rem 2rem;text-align:center;background:rgba(139,92,246,.04)}
+    .consult-cta h3{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:400;letter-spacing:-.02em;margin-bottom:.8rem}
+    .consult-cta p{font-size:.95rem;font-weight:300;color:var(--neutral);margin-bottom:2rem;line-height:1.7;max-width:480px;margin-left:auto;margin-right:auto}
+    .consult-cta .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+    /* ══════════ ABOUT – HI THERE ══════════ */
+    .about-greeting{text-align:center;padding:clamp(6rem,10vw,8rem) clamp(1.5rem,5vw,4rem) 0}
+    .about-greeting-tag{font-family:var(--serif);font-style:normal;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:400;color:#fff;letter-spacing:-.03em;line-height:1}
+    .about-photo-slot{margin:2.5rem auto 0;width:160px}
+    .about-photo-center{width:160px;height:160px;border-radius:50%;object-fit:cover;display:block;margin:0 auto;border:2px solid rgba(139,92,246,.4);box-shadow:0 0 40px -10px rgba(139,92,246,.35)}
+    .about-bio-center{max-width:680px;margin:3rem auto 0;text-align:center}
+    .about-bio-center p{font-size:1rem;font-weight:300;line-height:1.85;color:rgba(255,255,255,.75);margin-bottom:1.2rem}
+    .about-bio-center p:last-child{color:rgba(255,255,255,.45);font-style:italic}
+    /* ══════════ ACADEMIC TIMELINE ══════════ */
+    .timeline-wrap{margin:5rem auto 0;max-width:1200px;padding:0 clamp(1.5rem,5vw,4rem)}
+    .timeline-label{font-size:10px;text-transform:uppercase;letter-spacing:.28em;color:#404040;text-align:center;margin-bottom:3rem}
+    .timeline-track{display:flex;align-items:flex-start;gap:0;overflow-x:auto;padding-bottom:1.5rem;scrollbar-width:none}
+    .timeline-track::-webkit-scrollbar{display:none}
+    .timeline-node{display:flex;flex-direction:column;align-items:center;flex:1;min-width:170px;position:relative;padding:0 .5rem}
+    .timeline-node.phd-node{flex:2;min-width:260px}
+    .timeline-node::after{content:'→';position:absolute;right:-16px;top:30px;font-size:1.1rem;color:rgba(139,92,246,.65);z-index:1}
+    .timeline-node:last-child::after{display:none}
+    .timeline-year{font-family:'Courier New',monospace;font-size:.82rem;color:var(--violet);letter-spacing:.12em;margin-bottom:.65rem}
+    .timeline-dot{width:14px;height:14px;border-radius:50%;background:var(--violet);box-shadow:0 0 14px rgba(139,92,246,.7);margin-bottom:.8rem;flex-shrink:0}
+    .timeline-line{position:absolute;top:32px;left:calc(50% + 7px);right:calc(-50% + 16px);height:1px;background:linear-gradient(90deg,rgba(139,92,246,.5),rgba(139,92,246,.1));z-index:0}
+    .timeline-node:last-child .timeline-line{display:none}
+    .timeline-degree{font-size:.88rem;font-weight:400;color:#d4d4d4;line-height:1.45;text-align:center;padding:0 .4rem}
+    .timeline-school{font-size:.78rem;font-weight:300;color:#525252;text-align:center;margin-top:.35rem}
+    /* Sub-entry (Deep Listening nested under PhD) */
+    .timeline-sub{margin-top:1.4rem;padding:.75rem 1rem;border:1px solid rgba(16,185,129,.2);border-radius:.9rem;background:rgba(16,185,129,.04);text-align:center;width:100%}
+    .timeline-sub-year{font-family:'Courier New',monospace;font-size:.72rem;color:var(--emerald);letter-spacing:.1em;display:block;margin-bottom:.3rem}
+    .timeline-sub-title{font-size:.82rem;font-weight:400;color:#d4d4d4;line-height:1.4;display:block}
+    .timeline-sub-school{font-size:.75rem;font-weight:300;color:#525252;display:block;margin-top:.2rem}
+    /* ══════════ ABOUT DEGREES (legacy kept for wwm page) ══════════ */
+    .about-academic{margin-top:2.2rem}
+    .about-degrees{display:flex;flex-direction:column;gap:.9rem;padding:0}
+    .about-degree{display:flex;flex-direction:column;gap:.2rem;padding:.85rem 1.1rem;border:1px solid rgba(255,255,255,.05);border-radius:.85rem;background:rgba(255,255,255,.015)}
+    .deg-title{font-size:.92rem;font-weight:400;color:#d4d4d4;letter-spacing:-.01em}
+    .deg-info{font-size:.82rem;font-weight:300;color:#525252;line-height:1.5}
+    .deg-info em{font-style:normal;color:#737373}
+
+    /* ══════════ EVENTS BLOCKS ══════════ */
+    .ev-block{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center;margin-bottom:5rem;padding-bottom:5rem;border-bottom:1px solid rgba(255,255,255,.05)}
+    .ev-block:last-of-type{border-bottom:none}
+    .ev-block-reverse{grid-template-columns:1fr 1.1fr}
+    .ev-block-reverse .ev-imgs{order:2}
+    .ev-block-reverse .ev-content{order:1}
+    @media(max-width:760px){.ev-block,.ev-block-reverse{grid-template-columns:1fr;gap:2rem}.ev-block-reverse .ev-imgs,.ev-block-reverse .ev-content{order:unset}}
+    .ev-imgs{display:grid;gap:.8rem;border-radius:1.2rem;overflow:hidden}
+    .ev-imgs-2{grid-template-columns:1fr 1fr}
+    .ev-imgs-3{grid-template-columns:1fr 1fr;grid-template-rows:auto auto}
+    .ev-imgs-3 .ev-img:first-child{grid-column:1/-1}
+    .ev-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:.8rem}
+    .ev-img-poster{aspect-ratio:3/4;object-fit:cover}
+    .ev-tag{display:inline-block;font-size:9px;text-transform:uppercase;letter-spacing:.22em;color:var(--emerald);margin-bottom:.8rem}
+    .ev-title{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:400;letter-spacing:-.02em;line-height:1.1;margin-bottom:1rem}
+    .ev-body{font-size:.95rem;font-weight:300;line-height:1.82;color:var(--neutral)}
+    .ev-list{margin-top:1rem;display:flex;flex-direction:column;gap:.4rem;padding-left:0}
+    .ev-list li{font-size:.9rem;font-weight:300;color:#737373;list-style:none;padding-left:1.2rem;position:relative}
+    .ev-list li::before{content:'—';position:absolute;left:0;color:var(--violet);font-size:.75rem}
+
+    /* ══════════ EVENTS IMAGE SLOTS ══════════ */
+    .event-img-slot{aspect-ratio:16/9;border-radius:.9rem;background:rgba(255,255,255,.025);border:1px dashed rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+    .event-img-label{font-size:9px;text-transform:uppercase;letter-spacing:.2em;color:#404040}
+    .fmt-card-body{padding-top:.3rem}
+    .events-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    @media(max-width:640px){.events-gallery{grid-template-columns:1fr 1fr}}
+    .gallery-slot{aspect-ratio:4/3;border-radius:1rem;background:rgba(255,255,255,.02);border:1px dashed rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center}
+
+    /* ══════════ CURSOR ══════════ */
+    .cursor{width:9px;height:9px;border-radius:50%;background:var(--violet);position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen;transition:transform 120ms var(--ease)}
+    .cursor-ring{width:34px;height:34px;border-radius:50%;border:1px solid rgba(139,92,246,.38);position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all 450ms var(--ease)}
+    @media(hover:none){.cursor,.cursor-ring{display:none}}
+    ::-webkit-scrollbar{width:3px}
+    ::-webkit-scrollbar-track{background:#030303}
+    ::-webkit-scrollbar-thumb{background:rgba(139,92,246,.45);border-radius:2px}
+
+    /* ══════════ METRICS TICKER ══════════ */
+    .ticker-strip{width:100%;height:60px;background:rgba(0,0,0,.4);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);overflow:hidden;display:flex;align-items:center;position:relative;z-index:1}
+    .ticker-inner{display:flex;align-items:center;white-space:nowrap;animation:ticker 90s linear infinite;will-change:transform}
+    .ticker-inner:hover{animation-play-state:paused}
+    @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .ticker-item{display:inline-flex;align-items:center;gap:.6rem;padding:0 2.8rem}
+    .ticker-item::after{content:'·';color:rgba(255,255,255,.12);margin-left:2.8rem}
+    .ticker-label{font-family:'Courier New',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:#737373}
+    .ticker-value{font-family:'Courier New',monospace;font-size:1rem;color:#fff;letter-spacing:-.01em}
+    .ticker-value.accent-v{color:#8B5CF6}
+    .ticker-value.accent-c{color:#06B6D4}
+    .ticker-value.accent-e{color:#10B981}
+
+    /* ══════════ CYMATIC ══════════ */
+    .cymatic-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center}
+    #cymaticCanvas{width:100%;max-width:460px;height:auto;aspect-ratio:1;display:block;border-radius:50%;background:transparent}
+    .cymatic-label{margin-top:1rem;font-size:.78rem;font-weight:300;letter-spacing:.14em;text-transform:uppercase;color:#404040;text-align:center}
+
+    /* ══════════ IDE CENTRED ══════════ */
+    .ide-centred-wrap{max-width:640px;margin:0 auto;padding:clamp(4rem,8vw,6rem) clamp(1.5rem,5vw,4rem) clamp(2rem,4vw,3rem)}
+
+    /* ══════════ WHAT IF SECTION ══════════ */
+    .whatif-section{padding:clamp(5rem,10vw,8rem) clamp(1.5rem,5vw,4rem);max-width:1100px;margin:0 auto}
+    .whatif-intro{text-align:center;max-width:780px;margin:0 auto 3.5rem}
+    .whatif-title{font-family:var(--serif);font-size:clamp(1.7rem,3.2vw,2.6rem);font-weight:400;letter-spacing:-.03em;line-height:1.18;margin-top:1rem;color:#fff}
+    .whatif-body{font-size:1rem;font-weight:300;line-height:1.85;color:var(--neutral);margin-top:1.2rem}
+    .whatif-body em{font-style:normal;color:#fff}
+    .astronaut-wrap{display:flex;justify-content:center;margin:2.5rem 0 3rem}
+    .astronaut-svg{width:140px;height:auto;animation:astro-float 7s ease-in-out infinite;filter:drop-shadow(0 0 18px rgba(139,92,246,.25))}
+    .whatif-cols{display:grid;grid-template-columns:1.05fr 1fr;gap:3rem;align-items:center}
+    @media(max-width:760px){.whatif-cols{grid-template-columns:1fr;gap:2rem}}
+    .whatif-right{display:flex;flex-direction:column;gap:1.4rem}
+    .whatif-right p{font-size:1rem;font-weight:300;line-height:1.85;color:var(--neutral)}
+    .whatif-right .highlight{font-family:var(--serif);font-size:1.15rem;color:rgba(255,255,255,.85);line-height:1.6;font-weight:400}
+
+    /* ══════════ WORK WITH ME ══════════ */
+    .wwm-section{padding:clamp(4rem,8vw,7rem) clamp(1.5rem,5vw,4rem);max-width:1100px;margin:0 auto}
+    .wwm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-top:2.8rem}
+    @media(max-width:640px){.wwm-grid{grid-template-columns:1fr}}
+    .wwm-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:1.5rem;padding:2.2rem;transition:opacity 700ms var(--ease),transform 700ms var(--ease),border-color 350ms,box-shadow 350ms,background 350ms;cursor:default;opacity:0;transform:translateY(30px)}
+    .wwm-card.in{opacity:1;transform:translateY(0)}
+    .wwm-card:hover{transform:translateY(-8px);border-color:rgba(139,92,246,.25);background:rgba(255,255,255,.04);box-shadow:0 0 20px -10px rgba(139,92,246,.4)}
+    .wwm-card-icon{font-size:1.6rem;margin-bottom:1.2rem}
+    .wwm-card-title{font-family:var(--serif);font-size:1.3rem;font-weight:400;letter-spacing:-.02em;margin-bottom:.65rem;line-height:1.15}
+    .wwm-card-body{font-size:.9rem;font-weight:300;line-height:1.8;color:#737373}
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-left">
+    <a class="nav-home-icon" onclick="navigate('home')" title="Home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z"/>
+        <path d="M9 21V12h6v9"/>
+      </svg>
+    </a>
+    <a class="nav-logo" onclick="navigate('home')">Viviana Caro</a>
+  </div>
+  <div class="nav-links">
+    <a onclick="navigate('about')" data-page="about">About</a>
+    <a onclick="navigate('mywork')" data-page="mywork">Services</a>
+  </div>
+  <a onclick="navigate('contact')" class="nav-cta">Get in Touch</a>
+</nav>
+
+<!-- ════════════════════════════════
+     HOME
+════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <section id="hero">
+    <div class="orbs">
+      <div class="orb orb-a"></div>
+      <div class="orb orb-b"></div>
+      <div class="orb orb-c"></div>
+    </div>
+
+    <!-- Centered text content -->
+    <div class="hero-content">
+      <h1 class="hero-title reveal d1">
+        Acoustic States<br>of <em class="shimmer">Consciousness</em>
+      </h1>
+      <div class="hero-whatif reveal d2">
+        <p class="hero-whatif-q">What if music is not just an entry point into altered states, but a training ground for them?</p>
+        <p class="hero-whatif-body">What if, before entering psychedelic experiences, we could train perception, attention, and ego flexibility through carefully designed sonic environments? Not to relax. Not to escape. But to learn how to navigate consciousness itself.</p>
+      </div>
+      <div class="hero-actions reveal d3">
+        <a onclick="navigate('about')" class="shiny-wrap"><span class="shiny-inner">Learn more</span></a>
+      </div>
+    </div>
+
+    <!-- Wandering mini astronauts — rendered as fixed elements via JS -->
+    <div class="wander-astro" id="wanderAstro1">
+      <svg viewBox="0 0 44 44" width="44" height="44" xmlns="http://www.w3.org/2000/svg">
+        <!-- Helmet -->
+        <circle cx="22" cy="22" r="20" fill="rgba(139,92,246,.1)" stroke="rgba(139,92,246,.72)" stroke-width="1.8"/>
+        <!-- Visor -->
+        <ellipse cx="22" cy="23" rx="13" ry="14" fill="rgba(3,3,12,.93)" stroke="rgba(6,182,212,.28)" stroke-width="1"/>
+        <!-- Headphone band -->
+        <path d="M8 23 Q8 5 22 5 Q36 5 36 23" fill="none" stroke="rgba(139,92,246,.78)" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="5" y="20" width="6" height="7" rx="3" fill="rgba(139,92,246,.5)" stroke="rgba(139,92,246,.88)" stroke-width="1.2"/>
+        <rect x="33" y="20" width="6" height="7" rx="3" fill="rgba(139,92,246,.5)" stroke="rgba(139,92,246,.88)" stroke-width="1.2"/>
+        <!-- Left eye (emerald) -->
+        <circle cx="17" cy="22" r="2.9" fill="#10B981"/>
+        <circle cx="17.8" cy="21.2" r="1.1" fill="rgba(255,255,255,.9)"/>
+        <!-- Right eye (violet) -->
+        <circle cx="27" cy="22" r="2.9" fill="#8B5CF6"/>
+        <circle cx="27.8" cy="21.2" r="1.1" fill="rgba(255,255,255,.9)"/>
+        <!-- Mischievous raised eyebrow left -->
+        <path d="M14 17.5 Q17 15.5 20 16.5" fill="none" stroke="rgba(255,255,255,.5)" stroke-width=".9" stroke-linecap="round"/>
+        <!-- Smirk -->
+        <path d="M17 30 Q22 33.5 27 30" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="wander-astro" id="wanderAstro2">
+      <svg viewBox="0 0 44 44" width="44" height="44" xmlns="http://www.w3.org/2000/svg">
+        <!-- Helmet -->
+        <circle cx="22" cy="22" r="20" fill="rgba(6,182,212,.08)" stroke="rgba(6,182,212,.6)" stroke-width="1.8"/>
+        <!-- Visor -->
+        <ellipse cx="22" cy="23" rx="13" ry="14" fill="rgba(3,3,12,.93)" stroke="rgba(139,92,246,.28)" stroke-width="1"/>
+        <!-- Headphone band -->
+        <path d="M8 23 Q8 5 22 5 Q36 5 36 23" fill="none" stroke="rgba(6,182,212,.7)" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="5" y="20" width="6" height="7" rx="3" fill="rgba(6,182,212,.45)" stroke="rgba(6,182,212,.85)" stroke-width="1.2"/>
+        <rect x="33" y="20" width="6" height="7" rx="3" fill="rgba(6,182,212,.45)" stroke="rgba(6,182,212,.85)" stroke-width="1.2"/>
+        <!-- Left eye (violet) -->
+        <circle cx="17" cy="22" r="2.9" fill="#8B5CF6"/>
+        <circle cx="17.8" cy="21.2" r="1.1" fill="rgba(255,255,255,.9)"/>
+        <!-- Right eye (cyan) -->
+        <circle cx="27" cy="22" r="2.9" fill="#06B6D4"/>
+        <circle cx="27.8" cy="21.2" r="1.1" fill="rgba(255,255,255,.9)"/>
+        <!-- Mischievous raised eyebrow right -->
+        <path d="M24 16.5 Q27 15.5 30 17.5" fill="none" stroke="rgba(255,255,255,.5)" stroke-width=".9" stroke-linecap="round"/>
+        <!-- Smirk (reversed) -->
+        <path d="M17 29 Q22 33.5 28 30.5" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- Third wandering astronaut -->
+    <div class="wander-astro" id="wanderAstro3">
+      <svg viewBox="0 0 44 44" width="44" height="44" xmlns="http://www.w3.org/2000/svg">
+        <!-- Helmet -->
+        <circle cx="22" cy="22" r="20" fill="rgba(16,185,129,.07)" stroke="rgba(16,185,129,.58)" stroke-width="1.8"/>
+        <!-- Visor -->
+        <ellipse cx="22" cy="23" rx="13" ry="14" fill="rgba(3,3,12,.93)" stroke="rgba(139,92,246,.28)" stroke-width="1"/>
+        <!-- Headphone band -->
+        <path d="M8 23 Q8 5 22 5 Q36 5 36 23" fill="none" stroke="rgba(16,185,129,.65)" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="5" y="20" width="6" height="7" rx="3" fill="rgba(16,185,129,.4)" stroke="rgba(16,185,129,.8)" stroke-width="1.2"/>
+        <rect x="33" y="20" width="6" height="7" rx="3" fill="rgba(16,185,129,.4)" stroke="rgba(16,185,129,.8)" stroke-width="1.2"/>
+        <!-- Left eye (cyan) -->
+        <circle cx="17" cy="22" r="2.9" fill="#06B6D4"/>
+        <circle cx="17.8" cy="21.2" r="1.1" fill="rgba(255,255,255,.9)"/>
+        <!-- Right eye (emerald) -->
+        <circle cx="27" cy="22" r="2.9" fill="#10B981"/>
+        <circle cx="27.8" cy="21.2" r="1.1" fill="rgba(255,255,255,.9)"/>
+        <!-- Both eyebrows raised (very mischievous) -->
+        <path d="M14 17.5 Q17 15 20 16" fill="none" stroke="rgba(255,255,255,.5)" stroke-width=".9" stroke-linecap="round"/>
+        <path d="M24 16 Q27 15 30 17.5" fill="none" stroke="rgba(255,255,255,.5)" stroke-width=".9" stroke-linecap="round"/>
+        <!-- Wide grin -->
+        <path d="M16 30 Q22 35 28 30" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- Magnetic field canvas — drawn between close astronauts -->
+    <canvas id="magnetCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:144;pointer-events:none"></canvas>
+
+    <!-- (old large two-astronaut SVG — kept hidden) -->
+    <div style="display:none">
+      <svg viewBox="0 0 220 165" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="sg" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"  stop-color="#8B5CF6" stop-opacity=".22"/>
+            <stop offset="55%" stop-color="#06B6D4" stop-opacity=".08"/>
+            <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <!-- Soft space field glow -->
+        <ellipse cx="110" cy="82" rx="108" ry="78" fill="url(#sg)"/>
+        <!-- Stars -->
+        <circle cx="10" cy="14" r="1"   fill="rgba(255,255,255,.55)"/>
+        <circle cx="208" cy="18" r="1.2" fill="rgba(255,255,255,.45)"/>
+        <circle cx="6"   cy="125" r=".8" fill="rgba(255,255,255,.35)"/>
+        <circle cx="214" cy="118" r=".9" fill="rgba(255,255,255,.4)"/>
+        <circle cx="110" cy="6"  r="1"   fill="rgba(255,255,255,.3)"/>
+        <circle cx="42"  cy="150" r=".7" fill="rgba(255,255,255,.3)"/>
+        <circle cx="178" cy="152" r=".8" fill="rgba(255,255,255,.35)"/>
+
+        <!-- ══ LEFT ASTRONAUT (center x=60) ══ -->
+        <!-- Helmet -->
+        <circle cx="60" cy="47" r="21" fill="rgba(139,92,246,.12)" stroke="rgba(139,92,246,.8)" stroke-width="2.2"/>
+        <!-- Visor -->
+        <ellipse cx="60" cy="49" rx="12" ry="13" fill="rgba(4,4,14,.92)" stroke="rgba(6,182,212,.45)" stroke-width="1.2"/>
+        <!-- Visor glint -->
+        <ellipse cx="54" cy="42" rx="3.5" ry="2" fill="rgba(255,255,255,.15)" transform="rotate(-22,54,42)"/>
+        <!-- LEFT EYE — emerald, mischievous -->
+        <circle cx="55.5" cy="48" r="2.2" fill="#10B981"/>
+        <circle cx="56.2" cy="47.3" r=".9" fill="rgba(255,255,255,.95)"/>
+        <!-- RIGHT EYE — violet, wider/rounder -->
+        <circle cx="64.5" cy="48" r="2.5" fill="#8B5CF6"/>
+        <circle cx="65.2" cy="47.2" r=".9" fill="rgba(255,255,255,.95)"/>
+        <!-- Raised mischievous eyebrow left -->
+        <path d="M53 42 Q56 39.5 59.5 40.5" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1" stroke-linecap="round"/>
+        <!-- Smirk -->
+        <path d="M55 56 Q59.5 60.5 65 57" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.4" stroke-linecap="round"/>
+        <!-- Headphone band -->
+        <path d="M42 49 Q42 26 60 26 Q78 26 78 49" fill="none" stroke="rgba(139,92,246,.9)" stroke-width="3" stroke-linecap="round"/>
+        <!-- Ear cup L -->
+        <rect x="37" y="46" width="9" height="11" rx="4.5" fill="rgba(139,92,246,.6)" stroke="rgba(139,92,246,.95)" stroke-width="1.5"/>
+        <!-- Ear cup R -->
+        <rect x="74" y="46" width="9" height="11" rx="4.5" fill="rgba(139,92,246,.6)" stroke="rgba(139,92,246,.95)" stroke-width="1.5"/>
+        <!-- Neck -->
+        <rect x="56" y="67" width="8" height="5" rx="2.5" fill="none" stroke="rgba(139,92,246,.4)" stroke-width="1.5"/>
+        <!-- Body suit -->
+        <rect x="47" y="71" width="26" height="29" rx="10" fill="rgba(139,92,246,.1)" stroke="rgba(139,92,246,.65)" stroke-width="2"/>
+        <!-- Chest panel -->
+        <rect x="53" y="79" width="14" height="10" rx="3.5" fill="rgba(6,182,212,.08)" stroke="rgba(6,182,212,.4)" stroke-width="1"/>
+        <!-- Panel LEDs -->
+        <circle cx="57" cy="84" r="1.6" fill="rgba(16,185,129,.9)"/>
+        <circle cx="60" cy="84" r="1.6" fill="rgba(139,92,246,.9)"/>
+        <circle cx="63" cy="84" r="1.6" fill="rgba(6,182,212,.9)"/>
+        <!-- Left arm (waving out playfully) -->
+        <path d="M47 80 Q28 84 22 100" fill="none" stroke="rgba(139,92,246,.6)" stroke-width="7" stroke-linecap="round"/>
+        <!-- Left glove (waving) -->
+        <circle cx="21" cy="103" r="6.5" fill="rgba(16,185,129,.12)" stroke="rgba(16,185,129,.6)" stroke-width="1.5"/>
+        <!-- Right arm (reaching to hold hands) -->
+        <path d="M73 80 Q88 83 99 89" fill="none" stroke="rgba(139,92,246,.6)" stroke-width="7" stroke-linecap="round"/>
+        <!-- Left leg -->
+        <path d="M57 99 L53 122" fill="none" stroke="rgba(139,92,246,.55)" stroke-width="7" stroke-linecap="round"/>
+        <!-- Right leg -->
+        <path d="M66 99 L70 122" fill="none" stroke="rgba(139,92,246,.55)" stroke-width="7" stroke-linecap="round"/>
+        <!-- Boots -->
+        <ellipse cx="52"  cy="124" rx="9" ry="4" fill="rgba(16,185,129,.08)" stroke="rgba(16,185,129,.55)" stroke-width="1.5"/>
+        <ellipse cx="71"  cy="124" rx="9" ry="4" fill="rgba(16,185,129,.08)" stroke="rgba(16,185,129,.55)" stroke-width="1.5"/>
+
+        <!-- ══ RIGHT ASTRONAUT (center x=160) ══ -->
+        <!-- Helmet -->
+        <circle cx="160" cy="47" r="21" fill="rgba(139,92,246,.12)" stroke="rgba(139,92,246,.8)" stroke-width="2.2"/>
+        <!-- Visor -->
+        <ellipse cx="160" cy="49" rx="12" ry="13" fill="rgba(4,4,14,.92)" stroke="rgba(6,182,212,.45)" stroke-width="1.2"/>
+        <!-- Visor glint -->
+        <ellipse cx="154" cy="42" rx="3.5" ry="2" fill="rgba(255,255,255,.15)" transform="rotate(-22,154,42)"/>
+        <!-- LEFT EYE -->
+        <circle cx="155.5" cy="48" r="2.5" fill="#8B5CF6"/>
+        <circle cx="156.2" cy="47.2" r=".9" fill="rgba(255,255,255,.95)"/>
+        <!-- RIGHT EYE — big, mischievous -->
+        <circle cx="164.5" cy="48" r="2.2" fill="#10B981"/>
+        <circle cx="165.2" cy="47.3" r=".9" fill="rgba(255,255,255,.95)"/>
+        <!-- Mischievous raised eyebrow right -->
+        <path d="M160.5 40.5 Q164 39.5 167 42" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1" stroke-linecap="round"/>
+        <!-- Wide grin -->
+        <path d="M155 56 Q160 61 165 57" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.4" stroke-linecap="round"/>
+        <!-- Headphone band -->
+        <path d="M142 49 Q142 26 160 26 Q178 26 178 49" fill="none" stroke="rgba(139,92,246,.9)" stroke-width="3" stroke-linecap="round"/>
+        <!-- Ear cup L -->
+        <rect x="133" y="46" width="9" height="11" rx="4.5" fill="rgba(139,92,246,.6)" stroke="rgba(139,92,246,.95)" stroke-width="1.5"/>
+        <!-- Ear cup R -->
+        <rect x="178" y="46" width="9" height="11" rx="4.5" fill="rgba(139,92,246,.6)" stroke="rgba(139,92,246,.95)" stroke-width="1.5"/>
+        <!-- Neck -->
+        <rect x="156" y="67" width="8" height="5" rx="2.5" fill="none" stroke="rgba(139,92,246,.4)" stroke-width="1.5"/>
+        <!-- Body suit -->
+        <rect x="147" y="71" width="26" height="29" rx="10" fill="rgba(139,92,246,.1)" stroke="rgba(139,92,246,.65)" stroke-width="2"/>
+        <!-- Chest panel -->
+        <rect x="153" y="79" width="14" height="10" rx="3.5" fill="rgba(6,182,212,.08)" stroke="rgba(6,182,212,.4)" stroke-width="1"/>
+        <!-- Panel LEDs -->
+        <circle cx="157" cy="84" r="1.6" fill="rgba(6,182,212,.9)"/>
+        <circle cx="160" cy="84" r="1.6" fill="rgba(139,92,246,.9)"/>
+        <circle cx="163" cy="84" r="1.6" fill="rgba(16,185,129,.9)"/>
+        <!-- Right arm (waving out playfully) -->
+        <path d="M173 80 Q192 84 198 100" fill="none" stroke="rgba(139,92,246,.6)" stroke-width="7" stroke-linecap="round"/>
+        <!-- Right glove (waving) -->
+        <circle cx="199" cy="103" r="6.5" fill="rgba(16,185,129,.12)" stroke="rgba(16,185,129,.6)" stroke-width="1.5"/>
+        <!-- Left arm (reaching to hold hands) -->
+        <path d="M147 80 Q132 83 121 89" fill="none" stroke="rgba(139,92,246,.6)" stroke-width="7" stroke-linecap="round"/>
+        <!-- Left leg -->
+        <path d="M157 99 L153 122" fill="none" stroke="rgba(139,92,246,.55)" stroke-width="7" stroke-linecap="round"/>
+        <!-- Right leg -->
+        <path d="M166 99 L170 122" fill="none" stroke="rgba(139,92,246,.55)" stroke-width="7" stroke-linecap="round"/>
+        <!-- Boots -->
+        <ellipse cx="152" cy="124" rx="9" ry="4" fill="rgba(16,185,129,.08)" stroke="rgba(16,185,129,.55)" stroke-width="1.5"/>
+        <ellipse cx="171" cy="124" rx="9" ry="4" fill="rgba(16,185,129,.08)" stroke="rgba(16,185,129,.55)" stroke-width="1.5"/>
+
+        <!-- ══ JOINED HANDS (centre) ══ -->
+        <!-- Left glove -->
+        <circle cx="103" cy="91" r="7" fill="rgba(139,92,246,.18)" stroke="rgba(139,92,246,.65)" stroke-width="1.5"/>
+        <!-- Right glove -->
+        <circle cx="117" cy="91" r="7" fill="rgba(139,92,246,.18)" stroke="rgba(139,92,246,.65)" stroke-width="1.5"/>
+        <!-- Connection pulse glow -->
+        <circle cx="110" cy="91" r="5" fill="rgba(255,255,255,.07)"/>
+        <!-- Tiny floating dots below (music/vibes) -->
+        <circle cx="104" cy="138" r="1.3" fill="rgba(139,92,246,.6)"/>
+        <circle cx="110" cy="134" r="1"   fill="rgba(6,182,212,.6)"/>
+        <circle cx="116" cy="138" r="1.3" fill="rgba(16,185,129,.6)"/>
+      </svg>
+    </div>
+  </section>
+
+
+</div>
+
+<!-- ════════════════════════════════
+     ABOUT
+════════════════════════════════ -->
+<div id="page-about" class="page">
+
+  <!-- ── 1. Greeting + photo + bio ── -->
+  <div class="about-greeting reveal d1">
+    <div class="section-tag" style="display:inline-block;margin-bottom:1.5rem">About</div>
+    <h1 class="about-greeting-tag">Hi there</h1>
+    <!-- Photo — replace src with your actual image path; placeholder shows if image is missing -->
+    <div class="about-photo-slot reveal d2">
+      <img src="images/img-viviana.jpg" alt="Viviana Caro" class="about-photo-center" id="aboutPhoto" onerror="document.getElementById('aboutPhotoPlaceholder').style.display='flex';this.style.display='none'"/>
+      <div id="aboutPhotoPlaceholder" style="display:none;width:160px;height:160px;border-radius:50%;border:2px dashed rgba(139,92,246,.35);background:rgba(139,92,246,.06);align-items:center;justify-content:center;margin:2.5rem auto 0;color:#404040;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;text-align:center">Photo<br>here</div>
+    </div>
+    <div class="about-bio-center reveal d3">
+      <p>I am a researcher and consultant working at the intersection of neuroscience, immersive sound, and altered states of consciousness. My work focuses on how experiences can be <strong style="color:rgba(255,255,255,.9)">designed</strong> — not just facilitated — to guide perception, emotion, and awareness.</p>
+      <p>I am one of the few practitioners working across immersive sound design, consciousness research, neuroaesthetics, sonic art, and ritual studies. This allows me to approach altered states not only as experiences, but as <strong style="color:rgba(255,255,255,.9)">systems that can be structured, refined, and scaled</strong>.</p>
+      <p>My practice integrates scientific research with an artistic approach rooted in deep listening, minimalism, and contemporary ritual. I draw on the lineage of Pauline Oliveros, the teachings of Plum Village (founded by Zen Master Thich Nhat Hanh), and Carl Jung's active imagination.</p>
+      <p>In parallel, I compose and perform using field recordings, modular synthesis and AI, blending natural and electronic textures to create immersive soundscapes designed for inner exploration, communal attunement, and altered perceptual states.</p>
+      <p>I am particularly interested in how these states — awe, absorption, deep presence, shared emotional resonance — enhance imagination, creativity, intuition, and a sense of agency. In an era increasingly shaped by artificial intelligence, I see these capacities as essential.</p>
+      <p>My work ultimately asks: how can we design experiences that expand human perception — safely, intentionally, and meaningfully?</p>
+    </div>
+  </div>
+
+  <!-- ── 2. Academic Timeline ── -->
+  <div class="timeline-wrap reveal d2">
+    <p class="timeline-label">Journey</p>
+    <div class="timeline-track">
+      <div class="timeline-node">
+        <div class="timeline-line"></div>
+        <span class="timeline-year">2014 – 2018</span>
+        <div class="timeline-dot"></div>
+        <span class="timeline-degree">BSc in Cognitive Psychology</span>
+        <span class="timeline-school">University of Barcelona</span>
+      </div>
+      <div class="timeline-node">
+        <div class="timeline-line"></div>
+        <span class="timeline-year">2020</span>
+        <div class="timeline-dot"></div>
+        <span class="timeline-degree">MSc Psychology of Arts, Neuroaesthetics &amp; Creativity</span>
+        <span class="timeline-school">Goldsmiths, University of London</span>
+      </div>
+      <div class="timeline-node">
+        <div class="timeline-line"></div>
+        <span class="timeline-year">2024</span>
+        <div class="timeline-dot"></div>
+        <span class="timeline-degree">MA Immersive &amp; Spatial Audio Composition</span>
+        <span class="timeline-school">University of Greenwich (Audit)</span>
+      </div>
+      <div class="timeline-node phd-node">
+        <div class="timeline-line"></div>
+        <span class="timeline-year">2024 – 2027</span>
+        <div class="timeline-dot" style="background:var(--cyan);box-shadow:0 0 14px rgba(6,182,212,.7)"></div>
+        <span class="timeline-degree">PhD Neuroscience, Music &amp; Critical Theory</span>
+        <span class="timeline-school">University of Greenwich</span>
+        <!-- Deep Listening nested below PhD -->
+        <div class="timeline-sub">
+          <span class="timeline-sub-year">2025</span>
+          <span class="timeline-sub-title">Deep Listening — Intensive</span>
+          <span class="timeline-sub-school">The Center for Deep Listening</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrap" style="padding-top:3rem">
+
+    <!-- ── 3. Research ── -->
+    <div class="research-header" style="margin-bottom:2.5rem;margin-top:2rem">
+      <div class="section-tag reveal">Research</div>
+      <h2 class="section-title reveal d1">The Architecture of Acoustic<br>States of Consciousness</h2>
+      <p class="research-intro reveal d2">Altered states of consciousness are not anomalies — they are <strong>core to human cognition, creativity, and transformation</strong>. My research investigates how these states can be intentionally designed through sound, space, and attention. Drawing from neuroscience, ritual studies, and music, I explore how immersive environments modulate perception, reduce cognitive rigidity, deepen emotional processing, and facilitate self-transcendent experience.</p>
+    </div>
+    <div class="research-img-wrap reveal d2">
+      <img src="images/img-studio-spatial.jpg" alt="Spatial audio studio" class="research-hero-img" onerror="this.parentElement.style.display='none'" />
+    </div>
+    <div class="research-grid">
+      <div class="r-card reveal d1"><p class="r-card-num">01 — Science</p><h3 class="r-card-title">Neuroaesthetics<br>&amp; Psychology</h3><p class="r-card-body">Default mode network suppression during deep listening, psychoacoustic triggers for flow and awe states, and the neuroscience of beauty as a doorway to expanded awareness.</p></div>
+      <div class="r-card reveal d2"><p class="r-card-num">02 — Foundations</p><h3 class="r-card-title">Quantum<br>Mechanics</h3><p class="r-card-body">Exploring quantum coherence in biological systems and its implications for consciousness. The Observer Effect as a framework for intentional listening — how the act of witnessing changes the field you inhabit.</p></div>
+      <div class="r-card reveal d3"><p class="r-card-num">03 — Tradition</p><h3 class="r-card-title">Ritual<br>Research</h3><p class="r-card-body">Cross-cultural documentation of sound-induced altered states: Shipibo icaros, Mongolian khoomei, Tuvan throat singing, and West African drumming. Forty thousand years of human ceremony as evidence.</p></div>
+      <div class="r-card reveal d2"><p class="r-card-num">04 — Composition</p><h3 class="r-card-title">Musicology &amp;<br>Electronic Music</h3><p class="r-card-body">From Pauline Oliveros's Deep Listening to today's immersive electronic composers. How spectral composition and frequency architecture create the conditions for expanded inner states.</p></div>
+      <div class="r-card reveal d3"><p class="r-card-num">05 — Environment</p><h3 class="r-card-title">Immersive<br>Sound</h3><p class="r-card-body">Spatial audio design, resonant frequency physics, and the architecture of listening environments. How binaural recording, speaker placement, and acoustic treatment shape the depth of the inner journey.</p></div>
+      <div class="r-card reveal d4"><p class="r-card-num">06 — Frontier</p><h3 class="r-card-title">Psychedelic<br>Research</h3><p class="r-card-body">The role of music in Johns Hopkins and Imperial College psilocybin trials. Non-pharmacological protocols as standalone and complementary practices at the intersection of sound, medicine, and transformation.</p></div>
+    </div>
+    <blockquote class="research-quote reveal d3">"Sound is one of the most direct tools we have to access altered states — when structured with precision."</blockquote>
+
+    <!-- ── 4. What I Do ── -->
+    <div class="research-header" style="margin-bottom:2.5rem;margin-top:5rem">
+      <div class="section-tag reveal">What I do</div>
+      <h2 class="section-title reveal d1">Designing the right Conditions for<br>Transcendental Experiences</h2>
+      <p class="research-intro reveal d2">Transcendental experiences are not accidents. They arise from a precise architecture of sound, space, time, and intention — when each element is placed with care, the conditions for transformation become reliable.</p>
+      <p class="research-intro reveal d3" style="margin-top:1rem">I design these conditions. Working with retreat centres, clinics, festivals, and cultural organisations, I develop sonic protocols and experiential frameworks that guide individuals and groups into structured states of expanded awareness — supporting emotional processing, perceptual shifts, awe, and deep integration.</p>
+      <p class="research-intro reveal d3" style="margin-top:1rem">This is not about adding music to an experience. It is about engineering how consciousness moves through time.</p>
+    </div>
+
+    <!-- ── 5. IDE box ── -->
+    <div class="ide-split reveal" style="margin-top:3rem;display:grid;grid-template-columns:1.1fr 1fr;gap:3.5rem;align-items:center">
+      <div class="ide-window">
+        <div class="ide-toolbar">
+          <div class="win-dot wd-r"></div><div class="win-dot wd-y"></div><div class="win-dot wd-g"></div>
+          <span class="ide-filename">consciousness.js</span>
+          <button class="ide-copy" id="copyBtn">⌘ copy</button>
+        </div>
+        <div class="ide-code" id="codeBlock">
+<span class="cv">import</span> <span class="cw">{ Psychonaute }</span> <span class="cv">from</span> <span class="ce">'@Viviana'</span><span class="cg">;</span>
+
+<span class="cg">// Initialise with your INNER journey</span>
+<span class="cg">// Setting the right intention</span>
+<span class="cv">const</span> <span class="cc">journey</span> <span class="cw">= new</span> <span class="cc">Psychonaute</span><span class="cw">({</span>
+  <span class="cw">apiKey:</span> <span class="ce">'explore it first_•••••••••••'</span><span class="cg">,</span>
+  <span class="cw">region:</span> <span class="cw">[</span><span class="ce">'heart'</span><span class="cg">,</span> <span class="ce">'forehead'</span><span class="cg">,</span> <span class="ce">'palms'</span><span class="cw">]</span>
+<span class="cw">});</span>
+
+<span class="cg">// Begin a session — contemplate in stillness</span>
+<span class="cv">const</span> <span class="cc">session</span> <span class="cw">= await</span> <span class="cc">journey</span><span class="cw">.</span><span class="co">contemplateInStillness</span><span class="cw">({</span>
+  <span class="cw">preset:</span> <span class="ce">'theta-deep'</span><span class="cg">,</span>
+  <span class="cw">duration:</span> <span class="co">1800</span><span class="cg">,</span>
+  <span class="cw">carrier:</span> <span class="co">4</span><span class="cg">,     </span><span class="cg">// Hz — delta</span>
+<span class="cw">});</span>
+
+<span class="cg">// Stream coherence in real time</span>
+<span class="cc">session</span><span class="cw">.</span><span class="co">on</span><span class="cw">(</span><span class="ce">'coherence'</span><span class="cw">, (</span><span class="cc">data</span><span class="cw">) => {</span>
+  <span class="ce">loveForOtherHumans</span><span class="cw">(</span><span class="ce">`Index: </span><span class="cw">${</span><span class="cc">data</span><span class="cw">.</span><span class="cc">index</span><span class="cw">}</span><span class="ce"> %`</span><span class="cw">);</span>
+<span class="cw">});</span>
+
+<span class="cg">await</span> <span class="cc">session</span><span class="cw">.</span><span class="co">start</span><span class="cw">();</span>
+<span class="cg">// See you on the other side.</span>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:1.05rem;font-weight:300;color:rgba(255,255,255,.7);line-height:1.78">Think of how precise an LLM becomes with the right prompt — consciousness may not be so different.</p>
+        <p style="margin-top:1.2rem;font-size:.95rem;font-weight:300;color:var(--neutral);line-height:1.78">Altered states do not happen by chance. They arise from a delicate interplay between person, environment, expectation, and the prompts that shape awareness ;)</p>
+      </div>
+    </div>
+    <style>@media(max-width:860px){.ide-split{grid-template-columns:1fr!important}}</style>
+
+    <!-- ── 6. Services CTA ── -->
+    <div class="consult-cta reveal" style="margin-top:5rem">
+      <h3>Explore my services</h3>
+      <div class="cta-row" style="margin-top:1.8rem">
+        <a data-nav="mywork" class="shiny-wrap" style="cursor:pointer"><span class="shiny-inner">See what I offer</span></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     MY WORK
+════════════════════════════════ -->
+<div id="page-mywork" class="page">
+  <div class="page-wrap">
+
+    <!-- ── Consulting section ── -->
+    <div class="consult-hero">
+      <div class="section-tag reveal">Neuroaesthetics</div>
+      <h1 class="section-title reveal d1">Consulting for Altered State<br>Experience Design</h1>
+      <p class="section-sub reveal d2">I work with organisations designing experiences that shift consciousness — from psychedelic retreats to immersive cultural environments. My role is to help structure these experiences so they become safer, more consistent, and more impactful.</p>
+    </div>
+    <div class="wwm-grid" style="margin-top:3rem">
+      <div class="wwm-card reveal d1">
+        <div class="wwm-card-icon">🎙️</div>
+        <h3 class="wwm-card-title">Workshop Facilitation</h3>
+        <p class="wwm-card-body">Immersive group experiences that combine theory, guided listening, and direct perceptual exploration. Designed for retreats, conferences, wellbeing programmes, and cultural events — from two hours to multi-day formats.</p>
+      </div>
+      <div class="wwm-card reveal d2">
+        <div class="wwm-card-icon">🔬</div>
+        <h3 class="wwm-card-title">Consultation</h3>
+        <p class="wwm-card-body">Strategic advisory for organisations working with altered states, immersive environments, or sound-based wellbeing. I help you structure your programme, define your sonic protocol, and build consistency into your participant outcomes.</p>
+      </div>
+      <div class="wwm-card reveal d3">
+        <div class="wwm-card-icon">📐</div>
+        <h3 class="wwm-card-title">Protocol Design</h3>
+        <p class="wwm-card-body">Developing bespoke sonic and experiential protocols — including sound selection, sequencing, frequency architecture, and pacing guidelines — grounded in neuroscience and tested in practice.</p>
+      </div>
+      <div class="wwm-card reveal d4">
+        <div class="wwm-card-icon">✦</div>
+        <h3 class="wwm-card-title">Experience Design</h3>
+        <p class="wwm-card-body">End-to-end design of altered state experiences: spatial audio layout, environmental architecture, participant journey mapping, and integration frameworks. For retreat centres, festivals, wellness spaces, and cultural institutions.</p>
+      </div>
+    </div>
+    <div style="margin-top:3.5rem;margin-bottom:3rem" class="reveal d4">
+      <div style="text-align:center;margin-bottom:1.8rem"><span class="section-tag">Who I work with</span></div>
+      <div class="about-degrees" style="max-width:560px;margin:0 auto;">
+        <div class="about-degree" style="text-align:center;justify-content:center"><span class="deg-title">Psychedelic and wellness retreat centres</span></div>
+        <div class="about-degree" style="text-align:center;justify-content:center"><span class="deg-title">Mental health and wellness clinics</span></div>
+        <div class="about-degree" style="text-align:center;justify-content:center"><span class="deg-title">Immersive experience studios</span></div>
+        <div class="about-degree" style="text-align:center;justify-content:center"><span class="deg-title">Corporate and cultural institutions</span></div>
+        <div class="about-degree" style="text-align:center;justify-content:center"><span class="deg-title">Pop up cities and festivals</span></div>
+        <div class="about-degree" style="text-align:center;justify-content:center"><span class="deg-title">Research labs and universities</span></div>
+      </div>
+    </div>
+
+    <!-- ── Divider ── -->
+    <div style="height:1px;background:var(--border);margin:4rem 0 4rem" class="reveal"></div>
+
+    <!-- ── Portfolio ── -->
+    <div class="events-header" style="margin-bottom:3rem">
+      <div class="section-tag reveal">Portfolio</div>
+      <h2 class="section-title reveal d1">Selected<br>Work</h2>
+      <p class="section-sub reveal d2">Public events are experimental environments where I explore the impact of sound on perception and collective states. These are not performances — they are designed experiences.</p>
+    </div>
+
+    <!-- ── EVENT: Secular Rituals ── -->
+    <div class="ev-block reveal d1">
+      <div class="ev-imgs ev-imgs-2">
+        <img src="images/img-journey-lying.jpg" alt="Sound journey" class="ev-img" onerror="this.style.display=’none’" />
+        <img src="images/img-journey-yellow.jpg" alt="Atmospheric sound experience" class="ev-img" onerror="this.style.display=’none’" />
+      </div>
+      <div class="ev-content">
+        <span class="ev-tag">London</span>
+        <h2 class="ev-title">Secular Rituals for Modern Times</h2>
+        <p class="ev-body">I’ve hosted a series of events in London exploring contemporary rituals shaped by music, intention, and imagination, using multichannel spatial sound systems.</p>
+      </div>
+    </div>
+
+    <!-- ── EVENT: Psychedelic Experience Through Sound ── -->
+    <div class="ev-block ev-block-reverse reveal d1">
+      <div class="ev-imgs ev-imgs-3">
+        <img src="images/img-journey-candles1.jpg" alt="Immersive sound journey" class="ev-img" onerror="this.style.display=’none’" />
+        <img src="images/img-journey-candles2.jpg" alt="Candlelit ceremony" class="ev-img" onerror="this.style.display=’none’" />
+        <img src="images/img-event-red-walking.jpg" alt="Red-lit experience space" class="ev-img" onerror="this.style.display=’none’" />
+      </div>
+      <div class="ev-content">
+        <span class="ev-tag">Edge City Patagonia</span>
+        <h2 class="ev-title">Psychedelic Experience Through Sound</h2>
+        <p class="ev-body">As part of the pop-up city Edge City Patagonia, I led a series of immersive sonic experiences exploring how sound and guided imagery can evoke psychedelic states.</p>
+      </div>
+    </div>
+
+    <!-- ── EVENT: Sonic Provocations ── -->
+    <div class="ev-block reveal d1">
+      <div class="ev-imgs ev-imgs-2">
+        <img src="images/img-panel-forest.jpg" alt="Panel discussion at Houghton Festival" class="ev-img" onerror="this.style.display=’none’" />
+        <img src="images/img-forest-audience.jpg" alt="Forest audience" class="ev-img" onerror="this.style.display=’none’" />
+      </div>
+      <div class="ev-content">
+        <span class="ev-tag">Festivals &amp; Cultural Institutions</span>
+        <h2 class="ev-title">Sonic Provocations</h2>
+        <p class="ev-body">I collaborate with festivals and cultural institutions to lead deep listening experiences and convene conversations on music, wellbeing, and altered states of consciousness. At Houghton Festival, I curated a series of dialogues and listening-led gatherings with Reggie Watts, Safiyyah Nawaz, Nik Bärtsch, Al Wootton, and Daniela Huerta, examining how sound shapes perception, imagination, and collective states.</p>
+      </div>
+    </div>
+
+    <!-- ── EVENT: Public Speaking + Workshops ── -->
+    <div class="ev-block ev-block-reverse reveal d1">
+      <div class="ev-imgs ev-imgs-3">
+        <img src="images/img-resonance-panel.jpg" alt="Resonance event" class="ev-img" onerror="this.style.display=’none’" />
+        <img src="images/img-workshop-circle.jpg" alt="Workshop facilitation" class="ev-img" onerror="this.style.display=’none’" />
+        <img src="images/img-collage.jpg" alt="Events collage" class="ev-img" onerror="this.style.display=’none’" />
+      </div>
+      <div class="ev-content">
+        <span class="ev-tag">Talks &amp; Workshops</span>
+        <h2 class="ev-title">Public Speaking &amp; Workshops</h2>
+        <p class="ev-body">I’m regularly invited to give talks, join panel discussions, collaborate with artists, and facilitate workshops on imagination, neuroaesthetics, immersive sound, collective experiences, AI, and altered states of consciousness.</p>
+        <ul class="ev-list">
+          <li>Workshop on Active Imagination</li>
+          <li>The Psychological Power of Art</li>
+          <li>Resonance</li>
+          <li>Engineering Sovereignty in the Age of Networked Consciousness</li>
+          <li>…and others</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── EVENT: Tr▲nscnd ── -->
+    <div class="ev-block reveal d1">
+      <div class="ev-imgs ev-imgs-2">
+        <img src="images/img-transcnd-poster.jpg" alt="Tr▲nscnd Festival poster" class="ev-img ev-img-poster" onerror="this.style.display=’none’" />
+        <img src="images/img-club-dancing.jpg" alt="Immersive dance event" class="ev-img" onerror="this.style.display=’none’" />
+      </div>
+      <div class="ev-content">
+        <span class="ev-tag">Edge City Patagonia · 2025</span>
+        <h2 class="ev-title">Tr▲nscnd</h2>
+        <p class="ev-body">I created Tr▲nscnd, an 8-hour immersive sound-and-movement journey crafted to guide participants into expanded states of consciousness. Its first edition unfolded at Edge City Patagonia in 2025.</p>
+      </div>
+    </div>
+
+    <!-- ── EVENT: Art-Science Performances ── -->
+    <div class="ev-block ev-block-reverse reveal d1">
+      <div class="ev-imgs ev-imgs-2">
+        <img src="images/img-headphones.jpg" alt="Immersive headphone experience" class="ev-img" onerror="this.style.display=’none’" />
+        <img src="images/img-studio-spatial.jpg" alt="Spatial audio studio" class="ev-img" onerror="this.style.display=’none’" />
+      </div>
+      <div class="ev-content">
+        <span class="ev-tag">Performances &amp; Collaborations</span>
+        <h2 class="ev-title">Art-Science Performances</h2>
+        <p class="ev-body">I create and perform in art-science contexts — blending live electronics, modular synthesis, field recordings, and AI to produce immersive soundscapes that sit at the boundary of research and experience.</p>
+      </div>
+    </div>
+
+    <!-- ── Stay in the loop ── -->
+    <div class="upcoming-block reveal d3" style="margin-top:3rem">
+      <h3>Stay in the loop</h3>
+      <p>Events are announced via newsletter and social media.<br>Leave your email and I’ll notify you directly.</p>
+      <form id="notifyForm" class="subscribe-row">
+        <input type="email" id="notify-email" name="email" placeholder="your@email.com" required />
+        <input type="hidden" name="type" value="Event notification request" />
+        <button type="submit" class="shiny-wrap"><span class="shiny-inner">Notify me</span></button>
+      </form>
+      <div id="notifySuccess" style="display:none;margin-top:1rem;font-size:.9rem;font-weight:300;color:var(--emerald)">✦ &nbsp; You’re on the list — I’ll be in touch before the next event.</div>
+      <script>
+        (function(){
+          var nf = document.getElementById(‘notifyForm’);
+          var ns = document.getElementById(‘notifySuccess’);
+          nf.addEventListener(‘submit’, function(e){
+            e.preventDefault();
+            var btn = nf.querySelector(‘button[type="submit"]’);
+            var inner = btn.querySelector(‘.shiny-inner’);
+            inner.textContent = ‘Sending…’;
+            btn.disabled = true;
+            var data = new FormData(nf);
+            fetch(‘https://formspree.io/f/xeepbpnp’, {
+              method: ‘POST’, body: data,
+              headers: { ‘Accept’: ‘application/json’ }
+            }).then(function(r){ return r.json().then(function(j){ return {ok:r.ok,body:j}; }); })
+            .then(function(res){
+              if(res.ok){ nf.style.display=’none’; ns.style.display=’block’; }
+              else { inner.textContent=’Notify me’; btn.disabled=false; }
+            }).catch(function(){ inner.textContent=’Notify me’; btn.disabled=false; });
+          });
+        })();
+      </script>
+    </div>
+
+    <!-- ── CTA ── -->
+    <div class="consult-cta reveal d4" style="margin-top:4rem">
+      <h3>Let’s build something meaningful</h3>
+      <div class="cta-row" style="margin-top:1.8rem">
+        <a data-nav="contact" class="shiny-wrap" style="cursor:pointer"><span class="shiny-inner">Start a conversation</span></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     CONTACT
+════════════════════════════════ -->
+<div id="page-contact" class="page">
+  <div class="page-wrap-narrow">
+    <div class="contact-header">
+      <div class="section-tag reveal">Connect</div>
+      <h1 class="section-title reveal d1">Let's have a<br>conversation</h1>
+      <p class="section-sub reveal d2">If you are working on a project involving altered states, immersive sound, or experiential design — feel free to reach out.</p>
+    </div>
+    <div class="contact-form-wrap reveal d2">
+      <div data-fs-success style="display:none;text-align:center;padding:2.5rem 1.5rem">
+        <p style="font-size:1.5rem;margin-bottom:.8rem">✦</p>
+        <p style="font-family:var(--serif);font-size:1.5rem;font-style:normal;margin-bottom:1rem;letter-spacing:-.02em">Your message was sent</p>
+        <p style="font-size:.95rem;font-weight:300;color:var(--neutral);line-height:1.75;max-width:420px;margin:0 auto">I'll try to respond within 48 hours. If you don't hear from me, please send me an email to <a href="mailto:anaivivcaro@gmail.com" style="color:#a78bfa;text-decoration:underline;text-underline-offset:3px">anaivivcaro@gmail.com</a></p>
+      </div>
+      <div data-fs-error style="display:none;color:#f87171;font-size:.85rem;margin-bottom:1rem;padding:.75rem 1rem;border:1px solid rgba(248,113,113,.2);border-radius:10px;background:rgba(248,113,113,.04)"></div>
+      <form id="contactForm">
+        <div class="form-row">
+          <label for="f-name">Full Name</label>
+          <input type="text" id="f-name" name="name" placeholder="Your full name" required data-fs-field />
+          <span data-fs-error="name" style="font-size:.8rem;color:#f87171;display:block;margin-top:.3rem"></span>
+        </div>
+        <div class="form-row">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="email" placeholder="your@email.com" required data-fs-field />
+          <span data-fs-error="email" style="font-size:.8rem;color:#f87171;display:block;margin-top:.3rem"></span>
+        </div>
+        <div class="form-row">
+          <label for="f-reason">What would you like to explore together?</label>
+          <select id="f-reason" name="reason" required data-fs-field>
+            <option value="" disabled selected>Pick what resonates…</option>
+            <option value="Consultancy">Consultancy</option>
+            <option value="Research collaboration">Research collaboration</option>
+            <option value="Speaking / performance">Speaking / performance</option>
+            <option value="Workshop facilitation for a group">Workshop facilitation for a group</option>
+            <option value="Press and media">Press &amp; media</option>
+            <option value="Let's grab a coffee">Let's grab a coffee ☕</option>
+            <option value="Something else entirely">Something else entirely</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="f-message">Tell me more</label>
+          <textarea id="f-message" name="message" placeholder="What's the project? What are you working on? What's on your mind…" required data-fs-field></textarea>
+          <span data-fs-error="message" style="font-size:.8rem;color:#f87171;display:block;margin-top:.3rem"></span>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="shiny-wrap" id="contactSubmitBtn"><span class="shiny-inner" id="submitLabel">Send message</span></button>
+        </div>
+        <div id="contactError" style="display:none;color:#f87171;font-size:.85rem;margin-top:1rem;padding:.75rem 1rem;border:1px solid rgba(248,113,113,.2);border-radius:10px;background:rgba(248,113,113,.04);text-align:center">Something went wrong — please try again or email me directly.</div>
+      </form>
+    </div>
+    <script>
+      (function(){
+        var form = document.getElementById('contactForm');
+        var successDiv = document.querySelector('#page-contact [data-fs-success]');
+        var errorDiv   = document.getElementById('contactError');
+        var submitBtn  = document.getElementById('contactSubmitBtn');
+        var label      = document.getElementById('submitLabel');
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          label.textContent = 'Sending…';
+          submitBtn.disabled = true;
+          errorDiv.style.display = 'none';
+          var data = new FormData(form);
+          fetch('https://formspree.io/f/xeepbpnp', {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          }).then(function(r){ return r.json().then(function(j){ return {ok:r.ok, body:j}; }); })
+          .then(function(res){
+            if(res.ok){
+              form.style.display = 'none';
+              successDiv.style.display = 'block';
+            } else {
+              label.textContent = 'Send message';
+              submitBtn.disabled = false;
+              errorDiv.style.display = 'block';
+            }
+          }).catch(function(){
+            label.textContent = 'Send message';
+            submitBtn.disabled = false;
+            errorDiv.style.display = 'block';
+          });
+        });
+      })();
+    </script>
+  </div>
+</div>
+
+<!-- FAB BUTTONS -->
+<div class="fab-group">
+  <button class="fab" id="fabBack" title="Go back" onclick="historyBack()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"/>
+    </svg>
+  </button>
+  <button class="fab" id="fabTop" title="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+</div>
+
+<!-- ════════════════════════════════
+     FOOTER
+════════════════════════════════ -->
+<footer>
+  <div class="footer-line">
+    <span class="footer-brand-name">Acoustic States of Consciousness — Sound as Technology for Self-Transcendence</span>
+    <div class="footer-right">
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/vivianacaros/" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/viviaanacaro/" target="_blank" rel="noopener" class="social-link" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://substack.com/@vivianacaro" target="_blank" rel="noopener" class="social-link" title="Substack">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+        </a>
+        <a href="https://t.me/Vicaaro" target="_blank" rel="noopener" class="social-link" title="Telegram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </a>
+      </div>
+      <span class="footer-copy">© 2026 Viviana Caro</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ── History-aware Router ── */
+  let _currentPage = 'home';
+  function navigate(page, pushState) {
+    if (pushState !== false) history.pushState({ page }, '', '#' + page);
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + page);
+    if (!target) return;
+    _currentPage = page;
+    target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.querySelectorAll('.nav-links [data-page]').forEach(a => {
+      a.classList.toggle('active-link', a.dataset.page === page);
+    });
+    setTimeout(() => {
+      target.querySelectorAll('.reveal, .r-card, .consult-card, .wwm-card').forEach(el => {
+        el.classList.remove('in'); void el.offsetWidth; el.classList.add('in');
+      });
+    }, 40);
+    updateFab();
+  }
+  window.addEventListener('popstate', e => {
+    const page = (e.state && e.state.page) || 'home';
+    navigate(page, false);
+  });
+  function historyBack() {
+    if (history.length > 1) { history.back(); }
+    else { navigate('home'); }
+  }
+  function navigateWWM() { navigate('mywork'); }
+  /* expose globally so onclick="" attributes always find them */
+  window.navigate = navigate;
+  window.navigateWWM = navigateWWM;
+  window.historyBack = historyBack;
+
+  /* delegated handler for data-nav buttons — catches ALL pages including consultancy */
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('[data-nav]');
+    if (el) { e.preventDefault(); navigate(el.dataset.nav); }
+  });
+
+  /* ── FAB visibility ── */
+  const fabTop  = document.getElementById('fabTop');
+  const fabBack = document.getElementById('fabBack');
+  function updateFab() {
+    const onHome = _currentPage === 'home';
+    fabBack.classList.toggle('visible', !onHome);
+    // scroll-to-top only shows when scrolled
+  }
+  window.addEventListener('scroll', () => {
+    fabTop.classList.toggle('visible', window.scrollY > 220);
+  }, { passive: true });
+
+  /* ── Scroll Reveal ── */
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal, .r-card, .consult-card, .wwm-card').forEach(el => revealObs.observe(el));
+
+  /* ── Init home ── */
+  history.replaceState({ page: 'home' }, '', '#home');
+  setTimeout(() => {
+    document.querySelectorAll('#page-home .reveal').forEach(el => el.classList.add('in'));
+  }, 120);
+
+  /* ── Copy ── */
+  document.getElementById('copyBtn').addEventListener('click', function () {
+    const text = document.getElementById('codeBlock').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      this.textContent = '✓ copied';
+      setTimeout(() => { this.textContent = '⌘ copy'; }, 1800);
+    });
+  });
+
+  /* ── Cursor ── */
+  const cursor = document.getElementById('cursor');
+  const ring   = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  window.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  });
+  (function raf() {
+    rx += (mx - rx) * 0.11; ry += (my - ry) * 0.11;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(raf);
+  })();
+  /* ── Cymatic animation (organic / painterly) ── */
+  (function() {
+    const c = document.getElementById('cymaticCanvas');
+    if (!c) return;
+    const ctx = c.getContext('2d');
+    const S = 500;
+    c.width = c.height = S;
+    const cx = S/2, cy = S/2;
+    let t = 0;
+
+    /* off-screen buffer so we can blur without accumulation artifacts */
+    const buf = document.createElement('canvas');
+    buf.width = buf.height = S;
+    const bx = buf.getContext('2d');
+
+    function frame() {
+      bx.clearRect(0, 0, S, S);
+
+      /* 7 loose, slow-moving rings — lower n/m = softer curves */
+      for (let ring = 1; ring <= 7; ring++) {
+        const baseR = ring * S * 0.057;
+        const n = ring + 1;                          // fewer lobes = more organic
+        const m = ring;
+        const amp = S * 0.028 * (1.3 - ring * 0.07);
+        const spd = 0.14 + ring * 0.025;             // slower drift
+
+        bx.beginPath();
+        const steps = 480;
+        for (let i = 0; i <= steps; i++) {
+          const theta = (i / steps) * Math.PI * 2;
+          const r = baseR
+            + amp       * Math.sin(n * theta + t * spd)
+            + amp * 0.4 * Math.cos(m * theta - t * spd * 0.6)
+            + amp * 0.2 * Math.sin((n + m) * 0.4 * theta + t * 0.09);
+          const x = cx + r * Math.cos(theta);
+          const y = cy + r * Math.sin(theta);
+          i === 0 ? bx.moveTo(x, y) : bx.lineTo(x, y);
+        }
+        bx.closePath();
+
+        /* very faint — organic watercolour feel */
+        const a = 0.03 + 0.06 * (ring / 7);
+        bx.strokeStyle = ring % 3 === 0
+          ? `rgba(6,182,212,${a})`
+          : ring % 3 === 1
+          ? `rgba(139,92,246,${a + 0.02})`
+          : `rgba(16,185,129,${a})`;
+        bx.lineWidth = 1.6 + ring * 0.3;   // thicker = softer after blur
+        bx.stroke();
+      }
+
+      /* soft central glow */
+      const pr = S * 0.07 + S * 0.02 * Math.sin(t * 0.9);
+      const g = bx.createRadialGradient(cx, cy, 0, cx, cy, pr);
+      g.addColorStop(0, `rgba(139,92,246,${0.18 + 0.08 * Math.sin(t * 0.7)})`);
+      g.addColorStop(1, 'rgba(139,92,246,0)');
+      bx.fillStyle = g;
+      bx.beginPath(); bx.arc(cx, cy, pr, 0, Math.PI * 2); bx.fill();
+
+      /* composite blurred buffer onto main canvas for the "undefined" look */
+      ctx.clearRect(0, 0, S, S);
+      ctx.filter = 'blur(4px)';
+      ctx.drawImage(buf, 0, 0);
+      ctx.filter = 'none';
+      /* layer again unblurred at low opacity to add just a trace of edge */
+      ctx.globalAlpha = 0.25;
+      ctx.drawImage(buf, 0, 0);
+      ctx.globalAlpha = 1;
+
+      t += 0.007;   // very slow drift
+      requestAnimationFrame(frame);
+    }
+    frame();
+  })();
+
+  /* ── Wandering mini astronauts + magnetic field ── */
+  (function(){
+    var a1 = document.getElementById('wanderAstro1');
+    var a2 = document.getElementById('wanderAstro2');
+    var a3 = document.getElementById('wanderAstro3');
+    var canvas = document.getElementById('magnetCanvas');
+    if (!a1 || !a2 || !a3 || !canvas) return;
+
+    var ctx = canvas.getContext('2d');
+    var W, H;
+    function resize(){
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var NAV_SAFE = 90, FOOT_SAFE = 70, MARGIN = 30;
+    function randX(){ return MARGIN + Math.random() * (W - MARGIN * 2); }
+    function randY(){ return NAV_SAFE + Math.random() * (H - NAV_SAFE - FOOT_SAFE); }
+
+    var state = [
+      { el:a1, x:randX(), y:randY(), tx:randX(), ty:randY(), rot:Math.random()*360, rotSpd:(Math.random()-.5)*.22, spd:.004,  timer:0, iv:140+Math.random()*160 },
+      { el:a2, x:randX(), y:randY(), tx:randX(), ty:randY(), rot:Math.random()*360, rotSpd:(Math.random()-.5)*.18, spd:.0035, timer:0, iv:120+Math.random()*180 },
+      { el:a3, x:randX(), y:randY(), tx:randX(), ty:randY(), rot:Math.random()*360, rotSpd:(Math.random()-.5)*.2,  spd:.003,  timer:0, iv:130+Math.random()*170 }
+    ];
+
+    state.forEach(function(s){ s.el.style.left = s.x+'px'; s.el.style.top = s.y+'px'; });
+
+    /* Magnetic field: draw glowing arc between two close astronauts */
+    var ATTRACT_DIST = 280;   /* px — below this, field starts appearing */
+    var FULL_DIST    = 90;    /* px — at this distance, field is at full strength */
+
+    function drawField(ax, ay, bx, by, alpha){
+      var mx = (ax + bx) / 2, my = (ay + by) / 2;
+      var dist = Math.hypot(bx - ax, by - ay);
+
+      /* Radial glow at midpoint */
+      var r = dist * 0.6;
+      var grd = ctx.createRadialGradient(mx, my, 0, mx, my, r);
+      grd.addColorStop(0,   'rgba(139,92,246,' + (alpha * 0.28) + ')');
+      grd.addColorStop(0.4, 'rgba(6,182,212,'  + (alpha * 0.14) + ')');
+      grd.addColorStop(1,   'rgba(139,92,246,0)');
+      ctx.beginPath();
+      ctx.arc(mx, my, r, 0, Math.PI * 2);
+      ctx.fillStyle = grd;
+      ctx.fill();
+
+      /* Arc connecting them */
+      ctx.beginPath();
+      ctx.moveTo(ax, ay);
+      /* Bezier with perpendicular control point for organic curve */
+      var dx = bx - ax, dy = by - ay;
+      var nx = -dy * 0.25, ny = dx * 0.25;
+      ctx.bezierCurveTo(ax + dx*0.33 + nx, ay + dy*0.33 + ny,
+                        ax + dx*0.66 - nx, ay + dy*0.66 - ny,
+                        bx, by);
+      ctx.strokeStyle = 'rgba(139,92,246,' + (alpha * 0.35) + ')';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([3, 5]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      /* Small sparks at the midpoint */
+      for (var i = 0; i < 3; i++){
+        var t = 0.3 + i * 0.2;
+        var px = ax + (bx - ax) * t + (Math.random() - .5) * 8 * alpha;
+        var py = ay + (by - ay) * t + (Math.random() - .5) * 8 * alpha;
+        ctx.beginPath();
+        ctx.arc(px, py, 1.5 * alpha, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255,255,255,' + (alpha * 0.6) + ')';
+        ctx.fill();
+      }
+    }
+
+    function tick(){
+      state.forEach(function(s){
+        s.x += (s.tx - s.x) * s.spd;
+        s.y += (s.ty - s.y) * s.spd;
+        s.rot += s.rotSpd;
+        s.timer++;
+        if (s.timer > s.iv || (Math.abs(s.tx - s.x) < 4 && Math.abs(s.ty - s.y) < 4)){
+          s.tx = randX(); s.ty = randY();
+          s.timer = 0;
+          s.iv = 260 + Math.random() * 440;
+          s.rotSpd = (Math.random() - .5) * .28;
+        }
+        s.el.style.left = s.x + 'px';
+        s.el.style.top  = s.y + 'px';
+        s.el.style.transform = 'translate(-50%,-50%) rotate(' + s.rot + 'deg)';
+      });
+
+      /* Draw magnetic fields between each pair */
+      ctx.clearRect(0, 0, W, H);
+      var pairs = [[0,1],[1,2],[0,2]];
+      pairs.forEach(function(p){
+        var sa = state[p[0]], sb = state[p[1]];
+        var dist = Math.hypot(sb.x - sa.x, sb.y - sa.y);
+        if (dist < ATTRACT_DIST){
+          /* alpha: 0 at ATTRACT_DIST, 1 at FULL_DIST */
+          var alpha = Math.min(1, Math.max(0, 1 - (dist - FULL_DIST) / (ATTRACT_DIST - FULL_DIST)));
+          drawField(sa.x, sa.y, sb.x, sb.y, alpha);
+        }
+      });
+
+      requestAnimationFrame(tick);
+    }
+    tick();
+  })();
+
+  document.querySelectorAll('a, button, .r-card, .sess-card, .fmt-card, .consult-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'translate(-50%,-50%) scale(2.2)';
+      ring.style.transform = 'translate(-50%,-50%) scale(1.5)';
+      ring.style.borderColor = 'rgba(139,92,246,.65)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+      ring.style.transform = 'translate(-50%,-50%) scale(1)';
+      ring.style.borderColor = 'rgba(139,92,246,.38)';
+    });
+  });
+
+</script>
+</body>
+</html>
