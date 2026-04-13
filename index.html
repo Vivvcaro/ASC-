@@ -72,22 +72,21 @@
     .hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);background:#fff}
     .hamburger.open span:nth-child(2){opacity:0}
     .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);background:#fff}
-    /* Mobile dropdown */
-    .mobile-menu{display:none;position:fixed;top:5rem;left:50%;transform:translateX(-50%);width:90%;max-width:340px;background:rgba(10,10,10,.96);border:1px solid rgba(255,255,255,.1);border-radius:1.2rem;backdrop-filter:blur(24px);z-index:199;overflow:hidden;opacity:0;pointer-events:none;transition:opacity 250ms var(--ease),transform 250ms var(--ease);transform:translateX(-50%) translateY(-8px)}
-    .mobile-menu.open{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+    /* Mobile dropdown — use visibility so opacity transition works */
+    .mobile-menu{visibility:hidden;opacity:0;pointer-events:none;position:fixed;top:5rem;left:50%;transform:translateX(-50%) translateY(-10px);width:88%;max-width:320px;background:rgba(10,10,10,.97);border:1px solid rgba(255,255,255,.12);border-radius:1.2rem;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);z-index:199;overflow:hidden;transition:opacity 250ms var(--ease),transform 250ms var(--ease),visibility 0ms 250ms}
+    .mobile-menu.open{visibility:visible;opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);transition:opacity 250ms var(--ease),transform 250ms var(--ease),visibility 0ms 0ms}
     .mobile-menu a{display:block;font-size:12px;font-weight:400;text-transform:uppercase;letter-spacing:.14em;color:#a3a3a3;padding:1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer;transition:color 180ms,background 180ms}
     .mobile-menu a:last-child{border-bottom:none}
-    .mobile-menu a:hover{color:#fff;background:rgba(255,255,255,.05)}
+    .mobile-menu a:hover,.mobile-menu a:active{color:#fff;background:rgba(255,255,255,.05)}
 
-    /* ── MOBILE FOOTER (icons only) ── */
+    /* ── MOBILE FOOTER (social icons only, centred) ── */
     .mobile-footer-nav{display:none}
     @media(max-width:860px){
-      body{padding-bottom:68px}
+      body{padding-bottom:62px}
       .hamburger{display:flex}
-      .mobile-footer-nav{display:flex;justify-content:center;align-items:center;gap:.4rem;width:100%}
-      .footer-line{justify-content:center}
+      .footer-line{justify-content:center;height:auto;padding:.4rem 0}
       .footer-brand-name{display:none}
-      .footer-right{display:none}
+      .footer-right{display:flex;justify-content:center;gap:.4rem;flex-shrink:0}
       .footer-copy{display:none}
     }
 
@@ -1005,23 +1004,7 @@
   <div class="footer-line">
     <span class="footer-brand-name">Acoustic States of Consciousness — Sound as Technology for Self-Transcendence</span>
 
-    <!-- Mobile-only: social icons centered -->
-    <div class="mobile-footer-nav">
-      <a href="https://www.linkedin.com/in/vivianacaros/" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/viviaanacaro/" target="_blank" rel="noopener" class="social-link" title="Instagram">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-      </a>
-      <a href="https://substack.com/@vivianacaro" target="_blank" rel="noopener" class="social-link" title="Substack">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
-      </a>
-      <a href="https://t.me/Vicaaro" target="_blank" rel="noopener" class="social-link" title="Telegram">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-      </a>
-    </div>
-
-    <!-- Desktop: socials + copyright -->
+    <!-- Desktop + mobile: socials (footer-right shown on both, copyright hidden on mobile) -->
     <div class="footer-right">
       <div class="social-links">
         <a href="https://www.linkedin.com/in/vivianacaros/" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
