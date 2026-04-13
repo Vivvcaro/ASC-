@@ -84,10 +84,11 @@
     @media(max-width:860px){
       body{padding-bottom:62px}
       .hamburger{display:flex}
-      .footer-line{justify-content:center;height:auto;padding:.4rem 0}
+      .footer-line{justify-content:center;height:auto;padding:.5rem 0;width:100%}
       .footer-brand-name{display:none}
-      .footer-right{display:flex;justify-content:center;gap:.4rem;flex-shrink:0}
+      .footer-right{display:flex;justify-content:center;align-items:center;gap:.4rem;width:100%}
       .footer-copy{display:none}
+      .social-links{justify-content:center;width:100%}
     }
 
     /* ── SHARED ── */
@@ -311,8 +312,9 @@
     .tl-sub-title{font-size:.76rem;font-weight:400;color:#c4c4c4;display:block;line-height:1.3}
     .tl-sub-school{font-size:.68rem;font-weight:300;color:#525252;display:block;margin-top:.12rem}
     /* Timeline mobile scroll hint */
-    .tl-scroll-hint{display:none;text-align:center;font-size:.72rem;font-weight:300;color:#404040;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem;animation:hint-fade 2.5s ease-in-out 1s forwards}
-    @keyframes hint-fade{0%{opacity:1}80%{opacity:.6}100%{opacity:0;pointer-events:none}}
+    .tl-scroll-hint{display:none;text-align:center;font-size:.78rem;font-weight:300;color:var(--violet);letter-spacing:.08em;margin-bottom:1rem;opacity:.8}
+    .tl-scroll-hint span{display:inline-block;animation:hint-arrow 1.4s ease-in-out infinite}
+    @keyframes hint-arrow{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
     @media(max-width:600px){
       .tl-scroll-hint{display:block}
       .tl-hnode{min-width:130px}
@@ -464,7 +466,6 @@
 <div class="mobile-menu" id="mobileMenu">
   <a onclick="navigate('mywork');closeMobileMenu()">Services</a>
   <a onclick="navigate('about');closeMobileMenu()">About / Work</a>
-  <a onclick="navigate('contact');closeMobileMenu()">Get in Touch</a>
 </div>
 
 <!-- ════════════════════════════════
@@ -535,7 +536,7 @@
     <div class="timeline-header">
       <span class="section-tag">Journey</span>
     </div>
-    <p class="tl-scroll-hint">← swipe to explore →</p>
+    <p class="tl-scroll-hint">More to explore &nbsp;<span>→</span></p>
     <div class="timeline-track">
 
       <div class="tl-hnode">
