@@ -92,17 +92,9 @@
     }
 
     /* ── SCROLL ARROW ── */
-    .scroll-arrow{display:flex;justify-content:center;margin-top:2.5rem;position:relative;z-index:1}
-    .scroll-arrow-btn{display:flex;flex-direction:column;align-items:center;gap:.4rem;background:none;border:none;cursor:default;color:rgba(255,255,255,.3)}
-    .scroll-arrow-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.2em;color:rgba(139,92,246,.55)}
-    .scroll-arrow-icon{width:28px;height:28px;border:1px solid rgba(139,92,246,.45);border-radius:50%;display:flex;align-items:center;justify-content:center;animation:bounce-down 2s ease-in-out infinite;background:rgba(139,92,246,.1)}
-    .scroll-arrow-icon svg{width:12px;height:12px;stroke:#a78bfa}
+    .scroll-arrow-icon{width:32px;height:32px;border:1px solid rgba(139,92,246,.45);border-radius:50%;display:flex;align-items:center;justify-content:center;animation:bounce-down 2s ease-in-out infinite;background:rgba(139,92,246,.1);flex-shrink:0}
+    .scroll-arrow-icon svg{width:13px;height:13px;stroke:#a78bfa}
     @keyframes bounce-down{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
-    /* Mobile: fixed arrow pinned near top of viewport so it's always visible */
-    @media(max-width:860px){
-      .scroll-arrow{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);margin-top:0;pointer-events:none}
-      .scroll-arrow-label{display:none}
-    }
 
     /* ── HOME FRAMEWORK SECTION ── */
     .framework-section{max-width:780px;margin:0 auto;padding:clamp(4rem,8vw,7rem) clamp(1.5rem,5vw,4rem);text-align:center}
@@ -520,16 +512,10 @@
       </div>
       <div class="hero-actions reveal d3">
         <a onclick="navigate('mywork')" class="shiny-wrap"><span class="shiny-inner">Learn more</span></a>
-      </div>
-      <!-- Scroll down hint -->
-      <div class="scroll-arrow reveal d4">
-        <div class="scroll-arrow-btn">
-          <span class="scroll-arrow-label">Scroll</span>
-          <div class="scroll-arrow-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M6 9l6 6 6-6"/>
-            </svg>
-          </div>
+        <div class="scroll-arrow-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
         </div>
       </div>
     </div>
