@@ -91,6 +91,30 @@
       .social-links{justify-content:center;width:100%}
     }
 
+    /* ── SCROLL ARROW ── */
+    .scroll-arrow{display:flex;justify-content:center;margin-top:2.5rem;position:relative;z-index:1}
+    .scroll-arrow-btn{display:flex;flex-direction:column;align-items:center;gap:.4rem;background:none;border:none;cursor:default;color:rgba(255,255,255,.3)}
+    .scroll-arrow-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.2em;color:rgba(139,92,246,.55)}
+    .scroll-arrow-icon{width:28px;height:28px;border:1px solid rgba(139,92,246,.45);border-radius:50%;display:flex;align-items:center;justify-content:center;animation:bounce-down 2s ease-in-out infinite;background:rgba(139,92,246,.1)}
+    .scroll-arrow-icon svg{width:12px;height:12px;stroke:#a78bfa}
+    @keyframes bounce-down{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+    /* ── HOME FRAMEWORK SECTION ── */
+    .framework-section{max-width:780px;margin:0 auto;padding:clamp(4rem,8vw,7rem) clamp(1.5rem,5vw,4rem);text-align:center}
+    .fw-label{font-family:'Courier New',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.22em;color:var(--violet);display:block;margin-bottom:.7rem}
+    .fw-title{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;letter-spacing:-.02em;margin-bottom:.9rem;color:#fff;line-height:1.25}
+    .fw-body{font-size:.97rem;font-weight:300;line-height:1.9;color:#737373;text-align:left;max-width:680px;margin:0 auto}
+    .fw-body p{margin-bottom:1rem}
+    .fw-body strong{color:rgba(255,255,255,.75);font-weight:400}
+    .fw-body ul{list-style:none;padding:0;margin:.6rem 0 1rem;display:flex;flex-direction:column;gap:.35rem;text-align:left}
+    .fw-body ul li{display:flex;align-items:baseline;gap:.55rem}
+    .fw-body ul li::before{content:'*';color:var(--violet);flex-shrink:0}
+    .fw-divider{height:1px;background:var(--border);margin:3rem auto;max-width:680px}
+    .fw-why-lead{font-family:var(--serif);font-size:clamp(1.1rem,2.2vw,1.55rem);font-weight:400;color:rgba(255,255,255,.8);line-height:1.45;max-width:600px;margin:0 auto 1.5rem;letter-spacing:-.01em}
+    /* Approach accordion (reuses .acc-* but centred header) */
+    .fw-approach-acc{max-width:680px;margin:1.5rem auto 0;text-align:left}
+    .fw-quote{max-width:680px;margin:3rem auto 0;padding:1.8rem 2rem;border-left:2px solid rgba(139,92,246,.35);font-family:var(--serif);font-size:clamp(1rem,1.8vw,1.25rem);font-weight:400;color:rgba(255,255,255,.65);line-height:1.6;letter-spacing:-.01em;text-align:left}
+
     /* ── SHARED ── */
     .section-tag{display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:.25em;color:var(--violet);border:1px solid rgba(139,92,246,.25);border-radius:9999px;padding:.28rem .9rem;background:rgba(139,92,246,.06)}
     .section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:400;line-height:1.1;letter-spacing:-.03em;margin-top:.9rem}
@@ -492,10 +516,105 @@
       <div class="hero-actions reveal d3">
         <a onclick="navigate('mywork')" class="shiny-wrap"><span class="shiny-inner">Learn more</span></a>
       </div>
+      <!-- Scroll down hint -->
+      <div class="scroll-arrow reveal d4">
+        <div class="scroll-arrow-btn">
+          <span class="scroll-arrow-label">Scroll</span>
+          <div class="scroll-arrow-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </div>
+        </div>
+      </div>
     </div>
 
   </section>
 
+  <!-- ── Framework section ── -->
+  <div class="framework-section">
+
+    <!-- What this is -->
+    <div class="reveal d1">
+      <span class="fw-label">What this is</span>
+      <h2 class="fw-title">A research framework</h2>
+      <div class="fw-body" style="text-align:center;margin-top:.8rem">
+        <p>Acoustic States of Consciousness explores how sound can shape perception, behaviour, emotion, and cognition. Not as art or as therapy, but as a technology for expanding consciousness.</p>
+      </div>
+    </div>
+
+    <div class="fw-divider reveal"></div>
+
+    <!-- Why it matters -->
+    <div class="reveal d1">
+      <span class="fw-label">Why it matters</span>
+      <h2 class="fw-title">We are entering a new era of consciousness exploration.</h2>
+      <div class="fw-body">
+        <p>Psychedelics, neurotechnology, and mental health interventions are gaining momentum — yet most approaches share a limitation: they tend to prioritise <strong>induction over preparation</strong>.</p>
+        <p>We amplify the mind, without training it.</p>
+        <p>Sound offers a different entry point.</p>
+        <ul>
+          <li>It is non-invasive</li>
+          <li>It is accessible</li>
+          <li>It is already deeply embedded in human experience</li>
+          <li>And it operates at a systems level in the brain</li>
+        </ul>
+        <p>From dopaminergic reward pathways to memory encoding, from neural entrainment to motor activation — sound reshapes the structure of experience in real time.</p>
+      </div>
+    </div>
+
+    <div class="fw-divider reveal"></div>
+
+    <!-- The approach — accordion -->
+    <div class="reveal d1">
+      <span class="fw-label">The approach</span>
+      <h2 class="fw-title">Set &amp; Setting</h2>
+      <div class="fw-body" style="margin-bottom:1rem">
+        <p>Acoustic States of Consciousness is a structured pathway into altered states through sound. Grounded in neuroscience and informed by music theory and lived experience, my approach focuses on:</p>
+      </div>
+      <div class="fw-approach-acc accordion">
+
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false">
+            <span class="acc-title">Training before amplification</span>
+            <span class="acc-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="acc-body"><p>A subtle, carefully designed priming process that builds perceptual readiness before any deeper immersion.</p></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false">
+            <span class="acc-title">Individual variability</span>
+            <span class="acc-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="acc-body"><p>Not everyone responds to these experiences in the same way. The framework accounts for difference — in history, sensitivity, and readiness — rather than flattening it.</p></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false">
+            <span class="acc-title">Designed environments</span>
+            <span class="acc-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="acc-body"><p>Immersive sonic systems that expose participants to novelty, intensity, ambiguity, and perceptual shifts. Not to relax, but to build stability within the unknown.</p></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false">
+            <span class="acc-title">Conscious navigation</span>
+            <span class="acc-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="acc-body"><p>Shifting from uncontrolled immersion to intentional exploration, where curiosity replaces fear as the stabilising force.</p></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="reveal d2" style="margin-top:3rem;text-align:center">
+      <a onclick="navigate('about')" class="shiny-wrap" style="cursor:pointer"><span class="shiny-inner">More about my work</span></a>
+    </div>
+
+  </div>
 
 </div>
 
@@ -517,6 +636,7 @@
       <img src="images/img-viviana.jpg" alt="Viviana Caro" class="about-photo-big" id="aboutPhoto"
            onerror="this.style.display='none';document.getElementById('aboutPhotoPlaceholder').style.display='flex'"/>
       <div class="about-photo-placeholder" id="aboutPhotoPlaceholder" style="display:none">Photo</div>
+      <p style="font-size:.72rem;font-weight:300;color:#525252;letter-spacing:.08em;text-transform:uppercase;text-align:center;margin-top:.7rem">Viviana Caro — Research &amp; Sonic Practice</p>
     </div>
     <!-- Right: greeting + bio -->
     <div class="about-bio-col reveal d2">
@@ -602,8 +722,9 @@
       <p class="research-intro reveal d2">Altered states of consciousness are not anomalies — they are <strong>core to human cognition, creativity, and transformation</strong>. My research investigates how these states can be intentionally designed through sound, space, and attention. Drawing from neuroscience, ritual studies, and music, I explore how immersive environments modulate perception, reduce cognitive rigidity, deepen emotional processing, and facilitate self-transcendent experience.</p>
     </div>
     <div class="research-img-wrap reveal d2">
-      <img src="images/img-studio-spatial.jpg" alt="Spatial audio studio" class="research-hero-img" onerror="this.parentElement.style.display='none'" />
+      <img src="images/img-studio-spatial.jpg" alt="Spatial audio studio" class="research-hero-img" onerror="this.style.display='none'" />
     </div>
+    <p class="reveal" style="font-size:.7rem;font-weight:300;color:#525252;letter-spacing:.08em;text-transform:uppercase;text-align:center;margin-top:.6rem">Immersive Lab — University of Greenwich</p>
     <div class="research-grid">
       <div class="r-card reveal d1"><h3 class="r-card-title">Neuroaesthetics<br>&amp; Psychology</h3><p class="r-card-body">Default mode network suppression during deep listening, psychoacoustic triggers for flow and awe states, and the neuroscience of beauty as a doorway to expanded awareness.</p></div>
       <div class="r-card reveal d2"><h3 class="r-card-title">Quantum<br>Mechanics</h3><p class="r-card-body">Exploring quantum coherence in biological systems and its implications for consciousness. The Observer Effect as a framework for intentional listening — how the act of witnessing changes the field you inhabit.</p></div>
